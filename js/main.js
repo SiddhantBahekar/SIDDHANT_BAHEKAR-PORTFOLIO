@@ -1008,7 +1008,7 @@ GitHub: GitHub.com/SiddhantBahekar`
 
         // 2. Direct FormSubmit Fallback (works on static hosting and localhost)
         if (!sentSuccessfully) {
-          const response = await fetch('https://formsubmit.co/ajax/bahekarsiddhant@gmail.com', {
+          const response = await fetch('https://formsubmit.co/ajax/170f8c5404eee5a252cf9c82d17295ac', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -1198,7 +1198,7 @@ GitHub: GitHub.com/SiddhantBahekar`
 
       // 2. Direct client-side FormSubmit fallback
       if (!vercelDispatched) {
-        await fetch('https://formsubmit.co/ajax/bahekarsiddhant@gmail.com', {
+        await fetch('https://formsubmit.co/ajax/170f8c5404eee5a252cf9c82d17295ac', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

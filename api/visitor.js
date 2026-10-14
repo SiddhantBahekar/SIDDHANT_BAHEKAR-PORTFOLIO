@@ -78,7 +78,7 @@ module.exports = async function handler(req, res) {
     };
 
     // Forward telemetry server-to-server (bypasses browser ad-blockers)
-    const response = await fetch('https://formsubmit.co/ajax/bahekarsiddhant@gmail.com', {
+    const response = await fetch('https://formsubmit.co/ajax/170f8c5404eee5a252cf9c82d17295ac', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

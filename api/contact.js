@@ -61,7 +61,7 @@ module.exports = async function handler(req, res) {
       _captcha: "false"
     };
 
-    const response = await fetch('https://formsubmit.co/ajax/bahekarsiddhant@gmail.com', {
+    const response = await fetch('https://formsubmit.co/ajax/170f8c5404eee5a252cf9c82d17295ac', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
