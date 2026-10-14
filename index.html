@@ -1,0 +1,2282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO & Social Meta Tags -->
+  <title>Siddhant Shamkumar Bahekar | AI & Software Engineer | Digital Identity Portfolio</title>
+  <meta name="description" content="Official Digital Identity & Engineering Portfolio of Siddhant Shamkumar Bahekar - B.Tech CSE (AI & Machine Learning) student at Symbiosis Institute of Technology (SIT), Nagpur. Published Patent holder, AI/ML Intern, and ServiceNow Virtual Intern." />
+  <meta name="keywords" content="Siddhant Shamkumar Bahekar, Siddhant Bahekar, Portfolio, Symbiosis Institute of Technology, SIT Nagpur, Agentic AI, Machine Learning, Patent, CineAgent, ExfilSentinel, ServiceNow, Red Hat, CSE" />
+  <meta name="author" content="Siddhant Shamkumar Bahekar" />
+  <meta property="og:title" content="Siddhant Shamkumar Bahekar | Digital Identity & AI Portfolio" />
+  <meta property="og:description" content="Explore published patent, AI/ML projects, industry internships, verified certifications, and academic performance of Siddhant Shamkumar Bahekar." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/photos/siddhant_profile.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/photos/siddhant_profile.jpg" />
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor Followers (Non-Touch Devices) -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-circle" aria-hidden="true"></div>
+
+  <!-- Background Ambient Glow & Particles -->
+  <div class="bg-grid-pattern" aria-hidden="true"></div>
+  <div class="bg-ambient-blur bg-ambient-1" aria-hidden="true"></div>
+  <div class="bg-ambient-blur bg-ambient-2" aria-hidden="true"></div>
+  <div class="bg-ambient-blur bg-ambient-3" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- =========================================================================
+       FLOATING NAVIGATION BAR (SECTION VIEW SWITCHER)
+       ========================================================================= -->
+  <div class="navbar-wrapper">
+    <nav class="navbar" id="main-nav" aria-label="Main Navigation">
+      <a href="#home" class="nav-brand" data-target-view="home" aria-label="Home Overview">
+        <img src="assets/photos/siddhant_profile.jpg" alt="Siddhant Shamkumar Bahekar" class="brand-avatar" />
+        <span class="brand-name-full">Siddhant Shamkumar Bahekar</span>
+      </a>
+
+      <ul class="nav-links" id="desktop-nav-links">
+        <li><a href="#home" class="nav-link active" data-target-view="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-target-view="about">About</a></li>
+        <li><a href="#experience" class="nav-link" data-target-view="experience">Experience</a></li>
+        <li><a href="#education" class="nav-link" data-target-view="education">Education</a></li>
+        <li><a href="#skills" class="nav-link" data-target-view="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-target-view="projects">Projects</a></li>
+        <li><a href="#patent" class="nav-link" data-target-view="patent">Patent</a></li>
+        <li><a href="#certificates" class="nav-link" data-target-view="certificates">Certificates</a></li>
+        <li><a href="#gallery" class="nav-link" data-target-view="gallery">Gallery</a></li>
+        <li><a href="#contact" class="nav-link" data-target-view="contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Quick Search (Command Palette) Trigger -->
+        <button class="search-trigger-btn" aria-label="Quick Search Palette" title="Press Ctrl + K to search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search</span>
+          <kbd>Ctrl K</kbd>
+        </button>
+
+        <!-- Sound FX Toggle -->
+        <button class="icon-btn" id="sound-toggle-btn" aria-label="Toggle UI Sound Effects" title="Enable UI Sound Effects">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="icon-btn" id="theme-toggle-btn" aria-label="Toggle Light/Dark Theme" title="Toggle Theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+
+        <!-- Download CV Action -->
+        <a href="assets/docs/Siddhant_Bahekar_Resume.pdf" download="Siddhant_Bahekar_Resume.pdf" class="nav-cta-btn" id="nav-download-cv-btn" title="Download Updated Resume PDF">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>CV</span>
+        </a>
+
+        <!-- Mobile Drawer Hamburger -->
+        <button class="icon-btn mobile-menu-btn" aria-label="Open Navigation Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation Drawer">
+    <button class="mobile-drawer-close" aria-label="Close Mobile Navigation">✕</button>
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-nav-link active" data-target-view="home">🏠 Home Overview</a></li>
+      <li><a href="#about" class="mobile-nav-link" data-target-view="about">👤 About Me</a></li>
+      <li><a href="#experience" class="mobile-nav-link" data-target-view="experience">💼 Work Experience</a></li>
+      <li><a href="#education" class="mobile-nav-link" data-target-view="education">🎓 Education & Marks</a></li>
+      <li><a href="#skills" class="mobile-nav-link" data-target-view="skills">💻 Technical Skills</a></li>
+      <li><a href="#projects" class="mobile-nav-link" data-target-view="projects">🚀 Flagship Projects</a></li>
+      <li><a href="#patent" class="mobile-nav-link" data-target-view="patent">🏆 Patent & Honors</a></li>
+      <li><a href="#certificates" class="mobile-nav-link" data-target-view="certificates">📜 Verified Certifications</a></li>
+      <li><a href="#gallery" class="mobile-nav-link" data-target-view="gallery">📸 Photo Gallery</a></li>
+      <li><a href="#contact" class="mobile-nav-link" data-target-view="contact">📞 Contact</a></li>
+    </ul>
+    <div style="margin-top:auto; display:flex; flex-direction:column; gap:12px;">
+      <button class="btn-recruiter-toggle open-recruiter-modal-btn" style="justify-content:center;">
+        ⚡ 2-Min Recruiter Brief
+      </button>
+      <a href="assets/docs/Siddhant_Bahekar_Resume.pdf" download="Siddhant_Bahekar_Resume.pdf" class="btn-primary" style="justify-content:center;">
+        Download Resume (PDF)
+      </a>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       VIEW 1: HOME & HUB OVERVIEW (HERO + PORTAL DIRECTORY)
+       ========================================================================= -->
+  <main class="view-panel active" id="view-home">
+    <div class="container">
+      
+      <!-- Hero Header Component -->
+      <div class="hero-grid" style="margin-bottom: 60px;">
+        <!-- Left Hero Content -->
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="status-indicator"></span>
+            <span>Available for Summer 2027 Internships & AI Engineering</span>
+          </div>
+
+          <h1 class="hero-heading">
+            Hi, I'm <span class="hero-name-gradient">Siddhant Shamkumar Bahekar</span>
+          </h1>
+
+          <div class="hero-typing-wrapper">
+            <span>Specializing in:</span>
+            <span class="typing-text" aria-live="polite">AI & Machine Learning Engineer</span>
+          </div>
+
+          <p class="hero-bio">
+            B.Tech Computer Science (Major in AI/ML) scholar at 
+            <strong>Symbiosis International University (SIT Nagpur)</strong>. Published Indian Patent holder 
+            for predictive time-series forecasting, former <strong>AI/ML Intern at Maincrafts</strong>, 
+            and certified <strong>ServiceNow Virtual Intern</strong>.
+          </p>
+
+          <div class="hero-cta-group">
+            <button class="btn-primary" data-target-view="projects">
+              <span>Explore My Work</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+            
+            <a href="assets/docs/Siddhant_Bahekar_Resume.pdf" download="Siddhant_Bahekar_Resume.pdf" class="btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Resume</span>
+            </a>
+
+            <button class="btn-patent open-recruiter-modal-btn" title="View quick 2-minute overview for recruiters">
+              <span>⚡ Recruiter Brief</span>
+            </button>
+          </div>
+
+          <!-- Quick Statistics Row -->
+          <div class="hero-stats-row">
+            <div class="stat-item">
+              <div class="stat-number">1<span class="accent">+</span></div>
+              <div class="stat-label">Patent Published</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">3<span class="accent">+</span></div>
+              <div class="stat-label">Internships</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">94.6<span class="accent">%</span></div>
+              <div class="stat-label">ML Accuracy</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">5<span class="accent">th</span></div>
+              <div class="stat-label">Sem B.Tech CSE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero: 3D Holographic Interactive Profile Card with User Photo -->
+        <div class="hero-visual-wrapper">
+          <div class="profile-card-3d" id="profile-interactive-card">
+            <!-- Pinned Patent Honor Badge -->
+            <a href="#patent" class="orbit-badge orbit-1" data-target-view="patent" title="Click to view published Indian Patent">
+              <span>🏆 Patent Published</span>
+            </a>
+
+            <div class="profile-card-header">
+              <span class="card-tag">PRN: 24070521077</span>
+              <div class="card-verification">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>Verified Profile</span>
+              </div>
+            </div>
+
+            <div class="profile-image-container">
+              <img src="assets/photos/siddhant_profile.jpg" alt="Siddhant Shamkumar Bahekar Portrait" />
+              <div class="profile-image-overlay"></div>
+              <div class="profile-badge-overlay">
+                <span class="badge-pill">
+                  <span style="color:var(--emerald-primary);">●</span> Symbiosis SIT Nagpur
+                </span>
+                <span class="badge-pill">B.Tech Major in AI/ML</span>
+              </div>
+            </div>
+
+            <div class="profile-card-details">
+              <h2 class="profile-name">Siddhant Shamkumar Bahekar</h2>
+              <p class="profile-title">AI & Software Engineer | Patent Holder</p>
+              <p class="profile-org">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Nagpur, Maharashtra, India</span>
+              </p>
+            </div>
+
+            <div class="profile-links-row">
+              <a href="https://github.com/SiddhantBahekar" target="_blank" rel="noopener noreferrer" class="social-pill" title="GitHub: SiddhantBahekar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span>GitHub</span>
+              </a>
+
+              <a href="https://linkedin.com/in/siddhant-bahekar-7711a7315" target="_blank" rel="noopener noreferrer" class="social-pill" title="LinkedIn: siddhant-bahekar-7711a7315">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                <span>LinkedIn</span>
+              </a>
+
+              <a href="https://www.credly.com/badges/1b1e3dbb-5ddb-4a42-888d-695cfd7" target="_blank" rel="noopener noreferrer" class="social-pill" title="Credly Verified Red Hat Badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                <span>Credly</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recruiter Bar -->
+      <aside class="recruiter-bar" style="margin-bottom: 50px; border-radius: var(--radius-md);">
+        <div class="container" style="padding: 0 16px;">
+          <div class="recruiter-bar-inner">
+            <div class="recruiter-bar-content">
+              <span class="recruiter-tag">⚡ Fast-Track</span>
+              <span class="recruiter-text">
+                Recruiter or Hiring Manager? Review the <strong>Executive Summary</strong> with core competencies, published patent, and internship milestones.
+              </span>
+            </div>
+            <div class="recruiter-actions">
+              <button class="btn-recruiter-toggle open-recruiter-modal-btn">
+                Open 2-Min Executive Brief
+              </button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- PORTAL DIRECTORY: CLICKABLE SECTION PORTALS -->
+      <div class="portal-directory-section">
+        <div class="section-header">
+          <span class="section-tag">Interactive Portfolio Directory</span>
+          <h2 class="section-title">Explore <span class="gradient-text">Separate Sections</span></h2>
+          <p class="section-subtitle">
+            Click any section below to open its dedicated view with in-depth projects, documentation, and credentials.
+          </p>
+        </div>
+
+        <div class="portal-grid">
+          
+          <!-- Portal 1: About Me -->
+          <div class="portal-card" data-target-view="about">
+            <div class="portal-card-top">
+              <div class="portal-icon">👤</div>
+              <span class="portal-tag">Identity</span>
+            </div>
+            <h3 class="portal-title">Personal Introduction & Narrative</h3>
+            <p class="portal-desc">
+              My engineering philosophy, background at SIT Nagpur, core competencies, and interactive CLI terminal shell.
+            </p>
+            <div class="portal-card-footer">
+              <span class="portal-btn">
+                <span>Open About Section</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">Terminal Shell Included</span>
+            </div>
+          </div>
+
+          <!-- Portal 2: Experience -->
+          <div class="portal-card" data-target-view="experience">
+            <div class="portal-card-top">
+              <div class="portal-icon">💼</div>
+              <span class="portal-tag">3 Internships</span>
+            </div>
+            <h3 class="portal-title">Professional Experience</h3>
+            <p class="portal-desc">
+              Industry roles as AI/ML Intern at Maincrafts Technology, Python Intern at Kodbud, and ServiceNow Virtual Intern (AICTE).
+            </p>
+            <div class="portal-card-footer">
+              <span class="portal-btn">
+                <span>Open Experience</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--emerald-primary);">● Industry LOR</span>
+            </div>
+          </div>
+
+          <!-- Portal 3: Education & Performance -->
+          <div class="portal-card" data-target-view="education">
+            <div class="portal-card-top">
+              <div class="portal-icon">🎓</div>
+              <span class="portal-tag">Top Performer</span>
+            </div>
+            <h3 class="portal-title">Education & Academic Performance</h3>
+            <p class="portal-desc">
+              Symbiosis International University (B.Tech CSE AI/ML), Radha Jr College, Top Performer IRP honor, and course mastery scores.
+            </p>
+            <div class="portal-card-footer">
+              <span class="portal-btn">
+                <span>Open Education</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-primary);">IRP Certificate</span>
+            </div>
+          </div>
+
+          <!-- Portal 4: Skills -->
+          <div class="portal-card" data-target-view="skills">
+            <div class="portal-card-top">
+              <div class="portal-icon">💻</div>
+              <span class="portal-tag">Core Matrix</span>
+            </div>
+            <h3 class="portal-title">Technical Skills Matrix</h3>
+            <p class="portal-desc">
+              Interactive filterable matrix spanning Python, Java, SQL, React, FastAPI, PyTorch, Scikit-learn, and Red Hat Linux.
+            </p>
+            <div class="portal-card-footer">
+              <span class="portal-btn">
+                <span>Open Skills</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">Interactive Filters</span>
+            </div>
+          </div>
+
+          <!-- Portal 5: Projects -->
+          <div class="portal-card" data-target-view="projects">
+            <div class="portal-card-top">
+              <div class="portal-icon">🚀</div>
+              <span class="portal-tag">Flagship Systems</span>
+            </div>
+            <h3 class="portal-title">Engineering Projects</h3>
+            <p class="portal-desc">
+              ARIMA-LSTM Forecasting, Stock Price Prediction Platform, ExfilSentinel Insider Detection, and CineAgent Movie Recommendation.
+            </p>
+            <div class="portal-card-footer">
+              <span class="portal-btn">
+                <span>Open Projects</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--amber-primary);">⭐ Architecture Modals</span>
+            </div>
+          </div>
+
+          <!-- Portal 6: Patent & Honors -->
+          <div class="portal-card" data-target-view="patent">
+            <div class="portal-card-top">
+              <div class="portal-icon">🏆</div>
+              <span class="portal-tag">Govt Published</span>
+            </div>
+            <h3 class="portal-title">Published Patent & Key Honors</h3>
+            <p class="portal-desc">
+              Indian Patent #202521127184 (Predictive framework using ARIMA & LSTM), Top Performer IRP, and Enthusia 5.0 Boardroom Battle.
+            </p>
+            <div class="portal-card-footer">
+              <span class="portal-btn">
+                <span>Open Patent & Honors</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--amber-primary);">Patent Document</span>
+            </div>
+          </div>
+
+          <!-- Portal 7: Certificates -->
+          <div class="portal-card" data-target-view="certificates">
+            <div class="portal-card-top">
+              <div class="portal-icon">📜</div>
+              <span class="portal-tag">Verified</span>
+            </div>
+            <h3 class="portal-title">Verified Certifications</h3>
+            <p class="portal-desc">
+              ServiceNow Virtual Internship & Micro-Cert, Red Hat RH124 on Credly, IBM SkillsBuild AI/ML, Adobe Hackathon, and Maincrafts LOR.
+            </p>
+            <div class="portal-card-footer">
+              <span class="portal-btn">
+                <span>Open Certificates</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-primary);">Lightbox Zoom</span>
+            </div>
+          </div>
+
+          <!-- Portal 8: Gallery -->
+          <div class="portal-card" data-target-view="gallery">
+            <div class="portal-card-top">
+              <div class="portal-icon">📸</div>
+              <span class="portal-tag">Activities</span>
+            </div>
+            <h3 class="portal-title">Academic & Campus Gallery</h3>
+            <p class="portal-desc">
+              IRP Top Performers (Technical) felicitation at Symbiosis SIT auditorium, verified credential badges, and student leadership snapshots.
+            </p>
+            <div class="portal-card-footer">
+              <span class="portal-btn">
+                <span>Open Gallery</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">High-Res Photos</span>
+            </div>
+          </div>
+
+          <!-- Portal 9: Contact -->
+          <div class="portal-card" data-target-view="contact">
+            <div class="portal-card-top">
+              <div class="portal-icon">📞</div>
+              <span class="portal-tag">Connect</span>
+            </div>
+            <h3 class="portal-title">Contact & Communication</h3>
+            <p class="portal-desc">
+              Direct email link, telephone, LinkedIn, GitHub, campus address, and interactive direct message submission form.
+            </p>
+            <div class="portal-card-footer">
+              <span class="portal-btn">
+                <span>Open Contact</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--emerald-primary);">Fast Response</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       VIEW 2: ABOUT ME SECTION VIEW
+       ========================================================================= -->
+  <main class="view-panel" id="view-about">
+    <div class="container">
+      <div class="view-header-bar">
+        <button class="btn-back-hub" data-target-view="home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Back to Overview</span>
+        </button>
+        <div class="view-breadcrumbs">
+          <a href="#home" data-target-view="home">Overview</a>
+          <span>/</span>
+          <span style="color:#ffffff;">About Me</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-tag">Digital Identity & Narrative</span>
+        <h2 class="section-title">Engineering With <span class="gradient-text">Purpose & Innovation</span></h2>
+        <p class="section-subtitle">
+          Bridging advanced machine learning, full-stack software development, and enterprise cloud automation.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-lead">
+            I am a B.Tech Computer Science undergraduate majoring in 
+            <span class="gradient-text">Artificial Intelligence & Machine Learning</span> at Symbiosis International University (SIT), Nagpur (2024–2028).
+          </p>
+          <p>
+            My engineering philosophy combines rigorous empirical research with rapid production deployment. 
+            I have published an official Indian Patent on <strong>predictive financial time-series forecasting using ARIMA and LSTM</strong>, 
+            engineered insider threat detection platforms like <strong>ExfilSentinel</strong> with 94.6% accuracy, and built full-stack 
+            FastAPI + React analytical platforms with <strong>yfinance</strong>.
+          </p>
+          <p>
+            Beyond academia, I have completed industry internships as an <strong>AI/ML Intern at Maincrafts Technology</strong> 
+            (tuning predictive models with GridSearchCV to reduce RMSE to 0.6389), a <strong>Python Intern at Kodbud</strong>, 
+            and a <strong>ServiceNow Virtual Intern via SmartBridge / AICTE</strong>.
+          </p>
+
+          <div class="about-cards-grid">
+            <div class="about-feature-card">
+              <div class="feature-icon-box">🧠</div>
+              <h4>AI / ML & Predictive Deep Learning</h4>
+              <p>ARIMA, LSTM RNNs, XGBoost, Isolation Forests, Scikit-learn, and TensorFlow/PyTorch modeling.</p>
+            </div>
+            <div class="about-feature-card">
+              <div class="feature-icon-box">🌐</div>
+              <h4>Full-Stack & APIs</h4>
+              <p>React, Node.js, Express, FastAPI, Flask, REST APIs, MongoDB, and Oracle SQL databases.</p>
+            </div>
+            <div class="about-feature-card">
+              <div class="feature-icon-box">⚙️</div>
+              <h4>Enterprise Automation</h4>
+              <p>Certified ServiceNow Administration, Flow Designer, Automated Test Framework (ATF), and Linux (RH124).</p>
+            </div>
+            <div class="about-feature-card">
+              <div class="feature-icon-box">🏆</div>
+              <h4>Honors & Accolades</h4>
+              <p>Top Performer IRP at SIT Nagpur (2025–26), Patent Co-Inventor, and Enthusia 5.0 Boardroom Battle finalist.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Card: Stage Presentation & Faculty Guidance -->
+        <div class="about-visual-card">
+          <img src="assets/photos/stage_photo.jpg" alt="Siddhant presenting on stage at Symbiosis SIT" class="about-stage-photo" />
+          <div class="about-visual-body">
+            <div class="about-badge-row">
+              <span class="about-tag-badge">🎙️ Academic Presentation</span>
+              <span class="about-tag-badge">Symbiosis SIT Campus</span>
+              <span class="about-tag-badge">Top Performer IRP</span>
+            </div>
+            <blockquote class="about-quote">
+              "The most rewarding technology is that which solves complex ambiguity and empowers human decision-making with clarity and precision."
+            </blockquote>
+            <p style="font-size:0.88rem; color:var(--text-secondary);">
+              Pursuing rigorous coursework and research at SIT Nagpur, focusing on computational intelligence, Agentic AI, and practical software deployment.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Terminal Playground -->
+      <div class="terminal-card" id="interactive-terminal">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <div class="terminal-dot dot-red"></div>
+            <div class="terminal-dot dot-yellow"></div>
+            <div class="terminal-dot dot-green"></div>
+          </div>
+          <div class="terminal-title">siddhant@sit-nagpur: ~ (Interactive CLI Shell)</div>
+          <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-primary);">Bash v5.2</div>
+        </div>
+        <div class="terminal-body" id="terminal-cli-body">
+          <div class="terminal-output">
+            Welcome to Siddhant Shamkumar Bahekar's interactive terminal. Type <span class="highlight">'help'</span> or select a command below.
+          </div>
+          <div class="terminal-output">
+            System status: <span class="success">ONLINE</span> | Major: <span class="highlight">B.Tech CSE (AI/ML)</span> | Campus: <span class="highlight">SIT Nagpur</span>
+          </div>
+        </div>
+        <div class="terminal-chips">
+          <button class="terminal-chip" data-cmd="whoami">whoami</button>
+          <button class="terminal-chip" data-cmd="skills">skills</button>
+          <button class="terminal-chip" data-cmd="projects">projects</button>
+          <button class="terminal-chip" data-cmd="patent">patent</button>
+          <button class="terminal-chip" data-cmd="education">education</button>
+          <button class="terminal-chip" data-cmd="certs">certs</button>
+          <button class="terminal-chip" data-cmd="hire">hire</button>
+          <button class="terminal-chip" data-cmd="clear">clear</button>
+        </div>
+        <div class="terminal-input-row" style="padding:10px 20px 14px; background:rgba(10, 15, 28, 0.95);">
+          <span class="terminal-prompt">siddhant@sit-nagpur:~$</span>
+          <input type="text" id="terminal-cli-input" class="terminal-input" placeholder="Type command here and press Enter (e.g. whoami, patent, projects, skills)..." autocomplete="off" />
+        </div>
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="section-nav-footer">
+        <button class="btn-section-nav" data-target-view="home">
+          <span>← Home Hub</span>
+        </button>
+        <button class="btn-back-hub" data-target-view="home">
+          <span>🏠 Hub Overview</span>
+        </button>
+        <button class="btn-section-nav" data-target-view="experience">
+          <span>Work Experience →</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       VIEW 3: WORK EXPERIENCE SECTION VIEW
+       ========================================================================= -->
+  <main class="view-panel" id="view-experience">
+    <div class="container">
+      <div class="view-header-bar">
+        <button class="btn-back-hub" data-target-view="home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Back to Overview</span>
+        </button>
+        <div class="view-breadcrumbs">
+          <a href="#home" data-target-view="home">Overview</a>
+          <span>/</span>
+          <span style="color:#ffffff;">Work Experience</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-tag">Industry Experience</span>
+        <h2 class="section-title">Professional <span class="gradient-text">Internships</span></h2>
+        <p class="section-subtitle">
+          Hands-on enterprise roles in Machine Learning, software development, and cloud workflow automation.
+        </p>
+      </div>
+
+      <div class="timeline">
+        
+        <!-- 1. AI/ML Intern - Maincrafts Technology -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-period">May 2026 – June 2026</span>
+              <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--cyan-primary); font-weight:700;">Remote</span>
+            </div>
+            <h3>AI/ML Intern</h3>
+            <div class="timeline-institution">Maincrafts Technology</div>
+            <p class="timeline-desc">
+              • Built machine learning models for house price prediction and customer churn classification using Python and Scikit-learn.<br>
+              • Applied Exploratory Data Analysis (EDA), cross-validation, and GridSearchCV hyperparameter tuning, successfully reducing test RMSE from 0.7242 to 0.6389.<br>
+              • Received official Letter of Recommendation (LOR) for exemplary engineering performance.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Python</span>
+              <span class="timeline-tag">Scikit-learn</span>
+              <span class="timeline-tag">GridSearchCV</span>
+              <span class="timeline-tag">EDA</span>
+              <span class="timeline-tag">Predictive ML</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Python Programming Intern - Kodbud -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-period">Mar. 2026 – Apr. 2026</span>
+              <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--emerald-primary); font-weight:700;">Remote</span>
+            </div>
+            <h3>Python Programming Intern</h3>
+            <div class="timeline-institution">Kodbud</div>
+            <p class="timeline-desc">
+              • Developed robust Python applications including a Number Guessing Game, Password Strength Checker, and CLI Chatbot.<br>
+              • Implemented clean code principles, modular function hierarchies, input validation, and unit tests.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Python 3</span>
+              <span class="timeline-tag">CLI Chatbot</span>
+              <span class="timeline-tag">Security Validation</span>
+              <span class="timeline-tag">OOP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. ServiceNow Virtual Intern - SmartBridge / AICTE -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-period">Sep. 2025 – Oct. 2025</span>
+              <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--violet-primary); font-weight:700;">Remote</span>
+            </div>
+            <h3>ServiceNow Virtual Intern</h3>
+            <div class="timeline-institution">SmartBridge – ServiceNow Virtual Internship Program (AICTE Certified)</div>
+            <p class="timeline-desc">
+              • Completed comprehensive industrial training in ServiceNow Administration, Agentic AI, Flow Designer, Automated Test Framework (ATF), Reports, and CSA exam preparation.<br>
+              • Verified with Credential ID: <strong>SNU2004997</strong>.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">ServiceNow</span>
+              <span class="timeline-tag">Agentic AI</span>
+              <span class="timeline-tag">Flows</span>
+              <span class="timeline-tag">ATF</span>
+              <span class="timeline-tag">ITSM</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="section-nav-footer">
+        <button class="btn-section-nav" data-target-view="about">
+          <span>← About Me</span>
+        </button>
+        <button class="btn-back-hub" data-target-view="home">
+          <span>🏠 Hub Overview</span>
+        </button>
+        <button class="btn-section-nav" data-target-view="education">
+          <span>Education & Marks →</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       VIEW 4: EDUCATION & ACADEMIC PERFORMANCE VIEW
+       ========================================================================= -->
+  <main class="view-panel" id="view-education">
+    <div class="container">
+      <div class="view-header-bar">
+        <button class="btn-back-hub" data-target-view="home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Back to Overview</span>
+        </button>
+        <div class="view-breadcrumbs">
+          <a href="#home" data-target-view="home">Overview</a>
+          <span>/</span>
+          <span style="color:#ffffff;">Education & Marks</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-tag">Academic Foundations</span>
+        <h2 class="section-title">Educational Milestones & <span class="gradient-text">Performance</span></h2>
+        <p class="section-subtitle">
+          Rigorous technical coursework complemented by hands-on laboratory experimentation and university research.
+        </p>
+      </div>
+
+      <div class="edu-perf-grid">
+        <!-- Education Timeline -->
+        <div class="timeline">
+          
+          <!-- B.Tech SIT Nagpur -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-period">Aug. 2024 – May 2028 (Expected)</span>
+                <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--emerald-primary); font-weight:700;">● In Progress (Semester 5)</span>
+              </div>
+              <h3>Bachelor of Technology in Computer Science (Major in AI/ML)</h3>
+              <div class="timeline-institution">
+                Symbiosis International University, Nagpur, Maharashtra
+              </div>
+              <p class="timeline-desc">
+                Enrolled in the B.Tech Computer Science programme with specialization in <strong>Artificial Intelligence & Machine Learning</strong>. 
+                Honored with the <strong>Certificate of Achievement for Top Performer, IRP</strong> at SIT Nagpur (2025–26). 
+                Participated in SIT Nagpur Enthusia 5.0 Boardroom Battle.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">B.Tech CSE</span>
+                <span class="timeline-tag">AI/ML Major</span>
+                <span class="timeline-tag">Top Performer IRP</span>
+                <span class="timeline-tag">Enthusia 5.0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Senior Secondary School -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-period">June 2022 – April 2024</span>
+                <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--cyan-primary); font-weight:700;">● Completed</span>
+              </div>
+              <h3>Higher Secondary Certificate (HSC) – Class XII</h3>
+              <div class="timeline-institution">Radha Junior College, Nagpur, Maharashtra</div>
+              <p class="timeline-desc">
+                Science stream with core focus on Physics, Chemistry, and Mathematics (PCM). 
+                Developed foundational skills in mathematical modelling, calculus, and logical problem-solving.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Physics</span>
+                <span class="timeline-tag">Chemistry</span>
+                <span class="timeline-tag">Mathematics (PCM)</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Academic Performance Dashboard -->
+        <div class="performance-dashboard" id="academic-performance">
+          <div class="perf-header">
+            <h3>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <span>Academic Performance Indicators</span>
+            </h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-top:6px;">
+              Recognition and laboratory evaluations at Symbiosis Institute of Technology, Nagpur.
+            </p>
+          </div>
+
+          <div class="perf-score-tiles">
+            <div class="perf-tile">
+              <div class="perf-tile-val">IRP Top</div>
+              <div class="perf-tile-label">SIT Top Performer</div>
+            </div>
+            <div class="perf-tile">
+              <div class="perf-tile-val">Sem 5</div>
+              <div class="perf-tile-label">Academic Standing</div>
+            </div>
+            <div class="perf-tile">
+              <div class="perf-tile-val">100%</div>
+              <div class="perf-tile-label">Lab Assignments Cleared</div>
+            </div>
+            <div class="perf-tile">
+              <div class="perf-tile-val">Patent</div>
+              <div class="perf-tile-label">Published Research</div>
+            </div>
+          </div>
+
+          <!-- Core Subject Mastery Bars -->
+          <div class="course-grade-list">
+            <div class="grade-row">
+              <div class="grade-meta">
+                <span class="grade-name">Machine Learning & Deep Learning (ARIMA, LSTM, PyTorch)</span>
+                <span class="grade-score">Outstanding (96%)</span>
+              </div>
+              <div class="grade-progress-bar">
+                <div class="grade-progress-fill" style="width: 96%;"></div>
+              </div>
+            </div>
+
+            <div class="grade-row">
+              <div class="grade-meta">
+                <span class="grade-name">Agentic AI & Recommendation Systems (Flexi Credit)</span>
+                <span class="grade-score">Exemplary (95%)</span>
+              </div>
+              <div class="grade-progress-bar">
+                <div class="grade-progress-fill" style="width: 95%;"></div>
+              </div>
+            </div>
+
+            <div class="grade-row">
+              <div class="grade-meta">
+                <span class="grade-name">Full-Stack & APIs (FastAPI, React, Node.js, Express)</span>
+                <span class="grade-score">Distinction (94%)</span>
+              </div>
+              <div class="grade-progress-bar">
+                <div class="grade-progress-fill" style="width: 94%;"></div>
+              </div>
+            </div>
+
+            <div class="grade-row">
+              <div class="grade-meta">
+                <span class="grade-name">Database Systems (Oracle SQL, MongoDB)</span>
+                <span class="grade-score">High Honors (92%)</span>
+              </div>
+              <div class="grade-progress-bar">
+                <div class="grade-progress-fill" style="width: 92%;"></div>
+              </div>
+            </div>
+
+            <div class="grade-row">
+              <div class="grade-meta">
+                <span class="grade-name">System Administration & Linux (Red Hat RH124)</span>
+                <span class="grade-score">Certified (90%)</span>
+              </div>
+              <div class="grade-progress-bar">
+                <div class="grade-progress-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:14px; background:rgba(99,102,241,0.08); border:1px solid rgba(99,102,241,0.25); border-radius:var(--radius-sm); font-size:0.84rem; color:var(--text-secondary);">
+            💡 <em>Continuous Assessment (CA3) Flexi Credit Portfolio Project — B.Tech Computer Science & Engineering (AI/ML).</em>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="section-nav-footer">
+        <button class="btn-section-nav" data-target-view="experience">
+          <span>← Work Experience</span>
+        </button>
+        <button class="btn-back-hub" data-target-view="home">
+          <span>🏠 Hub Overview</span>
+        </button>
+        <button class="btn-section-nav" data-target-view="skills">
+          <span>Technical Skills →</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       VIEW 5: TECHNICAL SKILLS SECTION VIEW
+       ========================================================================= -->
+  <main class="view-panel" id="view-skills">
+    <div class="container">
+      <div class="view-header-bar">
+        <button class="btn-back-hub" data-target-view="home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Back to Overview</span>
+        </button>
+        <div class="view-breadcrumbs">
+          <a href="#home" data-target-view="home">Overview</a>
+          <span>/</span>
+          <span style="color:#ffffff;">Technical Skills</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-tag">Competency Matrix</span>
+        <h2 class="section-title">Technical <span class="gradient-text">Skillset & Tools</span></h2>
+        <p class="section-subtitle">
+          Directly aligned with industry requirements across languages, modern frameworks, cloud developer tools, and machine learning libraries.
+        </p>
+      </div>
+
+      <!-- Skills Category Tabs -->
+      <div class="skills-tabs">
+        <button class="skill-tab-btn active" data-category="all">⚡ All Skills</button>
+        <button class="skill-tab-btn" data-category="langs">💻 Languages</button>
+        <button class="skill-tab-btn" data-category="frameworks">🚀 Frameworks</button>
+        <button class="skill-tab-btn" data-category="tools">🛠️ Developer Tools</button>
+        <button class="skill-tab-btn" data-category="libraries">📚 ML Libraries</button>
+      </div>
+
+      <!-- Skills Cards Grid -->
+      <div class="skills-grid">
+        
+        <!-- Python -->
+        <div class="skill-card" data-category="langs">
+          <div class="skill-card-top">
+            <div class="skill-icon">🐍</div>
+            <span class="skill-level-badge">Advanced</span>
+          </div>
+          <div class="skill-name">Python</div>
+          <div class="skill-desc">Primary programming language for AI/ML pipelines, FastAPI microservices, and deep learning modeling.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 95%;"></div>
+          </div>
+        </div>
+
+        <!-- Java -->
+        <div class="skill-card" data-category="langs">
+          <div class="skill-card-top">
+            <div class="skill-icon">☕</div>
+            <span class="skill-level-badge">Core</span>
+          </div>
+          <div class="skill-name">Java</div>
+          <div class="skill-desc">Object-Oriented Programming (OOP), data structures, multi-threading, and enterprise principles.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <!-- SQL (Oracle) -->
+        <div class="skill-card" data-category="langs">
+          <div class="skill-card-top">
+            <div class="skill-icon">🗄️</div>
+            <span class="skill-level-badge">Proficient</span>
+          </div>
+          <div class="skill-name">SQL (Oracle)</div>
+          <div class="skill-desc">Relational schema design, complex joins, subqueries, database transactions, and data integrity.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 88%;"></div>
+          </div>
+        </div>
+
+        <!-- JavaScript & HTML/CSS -->
+        <div class="skill-card" data-category="langs">
+          <div class="skill-card-top">
+            <div class="skill-icon">🌐</div>
+            <span class="skill-level-badge">Proficient</span>
+          </div>
+          <div class="skill-name">JavaScript, HTML & CSS</div>
+          <div class="skill-desc">Modern ES6+, DOM manipulation, responsive layouts, CSS grid/flexbox, and interactive UI dashboards.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 90%;"></div>
+          </div>
+        </div>
+
+        <!-- React -->
+        <div class="skill-card" data-category="frameworks">
+          <div class="skill-card-top">
+            <div class="skill-icon">⚛️</div>
+            <span class="skill-level-badge">Modern Frontend</span>
+          </div>
+          <div class="skill-name">React</div>
+          <div class="skill-desc">Component-driven architectures, state hooks, responsive dashboards, and interactive prediction views.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 88%;"></div>
+          </div>
+        </div>
+
+        <!-- Node.js & Express.js -->
+        <div class="skill-card" data-category="frameworks">
+          <div class="skill-card-top">
+            <div class="skill-icon">🟢</div>
+            <span class="skill-level-badge">Backend</span>
+          </div>
+          <div class="skill-name">Node.js & Express.js</div>
+          <div class="skill-desc">Server-side execution, RESTful API endpoints, middleware routing, and asynchronous request handling.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <!-- FastAPI & Flask -->
+        <div class="skill-card" data-category="frameworks">
+          <div class="skill-card-top">
+            <div class="skill-icon">⚡</div>
+            <span class="skill-level-badge">High Performance</span>
+          </div>
+          <div class="skill-name">FastAPI & Flask</div>
+          <div class="skill-desc">Asynchronous Python microservices for low-latency ML model inference, OpenAPI docs, and data ingestion.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 92%;"></div>
+          </div>
+        </div>
+
+        <!-- PyTorch & TensorFlow / Keras -->
+        <div class="skill-card" data-category="frameworks">
+          <div class="skill-card-top">
+            <div class="skill-icon">🔥</div>
+            <span class="skill-level-badge">Deep Learning</span>
+          </div>
+          <div class="skill-name">PyTorch & TensorFlow / Keras</div>
+          <div class="skill-desc">Neural network training, LSTM recurrence, sequence windowing, backpropagation, and loss optimization.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 90%;"></div>
+          </div>
+        </div>
+
+        <!-- REST APIs & Linux -->
+        <div class="skill-card" data-category="frameworks">
+          <div class="skill-card-top">
+            <div class="skill-icon">🐧</div>
+            <span class="skill-level-badge">RH124 Linux</span>
+          </div>
+          <div class="skill-name">REST APIs & Linux</div>
+          <div class="skill-desc">API design, Red Hat Enterprise Linux system management, bash scripting, process control, and permissions.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 88%;"></div>
+          </div>
+        </div>
+
+        <!-- Developer Tools (Git, GCP, VS Code) -->
+        <div class="skill-card" data-category="tools">
+          <div class="skill-card-top">
+            <div class="skill-icon">🛠️</div>
+            <span class="skill-level-badge">Tooling</span>
+          </div>
+          <div class="skill-name">Git, GCP, VS Code, Colab</div>
+          <div class="skill-desc">Git version control, Google Cloud Platform (GCP), Visual Studio, Jupyter Notebooks, Google Colab, Eclipse.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 92%;"></div>
+          </div>
+        </div>
+
+        <!-- Scikit-learn, XGBoost & statsmodels -->
+        <div class="skill-card" data-category="libraries">
+          <div class="skill-card-top">
+            <div class="skill-icon">🤖</div>
+            <span class="skill-level-badge">ML Ecosystem</span>
+          </div>
+          <div class="skill-name">Scikit-learn, XGBoost & statsmodels</div>
+          <div class="skill-desc">Ensemble classifiers (Random Forest, Isolation Forest, XGBoost), ARIMA statistical modeling, GridSearchCV.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 94%;"></div>
+          </div>
+        </div>
+
+        <!-- pandas, NumPy, Matplotlib & Seaborn -->
+        <div class="skill-card" data-category="libraries">
+          <div class="skill-card-top">
+            <div class="skill-icon">📊</div>
+            <span class="skill-level-badge">Data Science</span>
+          </div>
+          <div class="skill-name">pandas, NumPy, Matplotlib & Seaborn</div>
+          <div class="skill-desc">Vectorized mathematics, complex dataframe wrangling, statistical analysis, and publication-ready plots.</div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 95%;"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="section-nav-footer">
+        <button class="btn-section-nav" data-target-view="education">
+          <span>← Education</span>
+        </button>
+        <button class="btn-back-hub" data-target-view="home">
+          <span>🏠 Hub Overview</span>
+        </button>
+        <button class="btn-section-nav" data-target-view="projects">
+          <span>Flagship Projects →</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       VIEW 6: FLAGSHIP PROJECTS VIEW
+       ========================================================================= -->
+  <main class="view-panel" id="view-projects">
+    <div class="container">
+      <div class="view-header-bar">
+        <button class="btn-back-hub" data-target-view="home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Back to Overview</span>
+        </button>
+        <div class="view-breadcrumbs">
+          <a href="#home" data-target-view="home">Overview</a>
+          <span>/</span>
+          <span style="color:#ffffff;">Flagship Projects</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-tag">Featured Engineering Work</span>
+        <h2 class="section-title">Flagship <span class="gradient-text">Projects & Systems</span></h2>
+        <p class="section-subtitle">
+          Production-grade applications and patent-published research built with modern frameworks and machine learning ensembles.
+        </p>
+      </div>
+
+      <!-- Project Category Filters -->
+      <div class="projects-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="ai">AI / Deep Learning</button>
+        <button class="filter-btn" data-filter="fullstack">Full-Stack & Systems</button>
+        <button class="filter-btn" data-filter="security">Cybersecurity & SOC</button>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="projects-grid">
+        
+        <!-- PROJECT 1: Time Series Forecasting using ARIMA and LSTM (Patent Published) -->
+        <div class="project-card flagship" data-category="ai">
+          <span class="patent-badge">🏆 Patent Published</span>
+          <div class="project-thumb-container">
+            <img src="assets/projects/stockcast_ai_hero.jpg" alt="Time Series Forecasting using ARIMA and LSTM" class="project-thumb" />
+          </div>
+          <div class="project-body">
+            <div class="project-meta-top">
+              <span>Python, TensorFlow, Keras, Statsmodels</span>
+              <span style="color:var(--amber-primary);">R² = 0.9599</span>
+            </div>
+            <h3 class="project-title">Time Series Forecasting using ARIMA and LSTM</h3>
+            <p class="project-desc">
+              Developed an advanced time-series forecasting model for stock prices using ARIMA and LSTM on historical financial data. 
+              Applied preprocessing, normalization, differencing, sequence windowing, and Gaussian filtering. 
+              <strong>Achieved RMSE of 3.76 and R² of 0.9599</strong> with the Simple LSTM model on Google stock-price data. Research patent successfully published!
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">LSTM RNN</span>
+              <span class="project-tag">ARIMA</span>
+              <span class="project-tag">TensorFlow</span>
+              <span class="project-tag">Statsmodels</span>
+              <span class="project-tag">Patent Published</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <button class="project-link-btn" onclick="openProjectModal('stockcast')">
+              <span>View Architecture & Metrics</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--amber-primary);">Patent Published</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 2: Stock Price Prediction Platform -->
+        <div class="project-card flagship" data-category="fullstack">
+          <span class="flagship-badge">⭐ Full-Stack ML</span>
+          <div class="project-thumb-container">
+            <img src="assets/projects/analytics_dashboard.png" alt="Stock Price Prediction Platform" class="project-thumb" />
+          </div>
+          <div class="project-body">
+            <div class="project-meta-top">
+              <span>Python, FastAPI, React, yfinance</span>
+              <span style="color:var(--cyan-primary);">5–90 Day Forecasts</span>
+            </div>
+            <h3 class="project-title">Stock Price Prediction Platform</h3>
+            <p class="project-desc">
+              Built a full-stack dashboard to retrieve 2 years of live market data and generate 5–90-day forward forecasts using 
+              ARIMA, LSTM, Gradient Boosting, and ensemble models. Implemented rigorous backtesting with RMSE, MAE, MAPE, R², 
+              and directional accuracy metrics. Interactive React interface with prediction intervals.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">React</span>
+              <span class="project-tag">Gradient Boosting</span>
+              <span class="project-tag">yfinance</span>
+              <span class="project-tag">Backtesting</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <button class="project-link-btn" onclick="openProjectModal('stockplatform')">
+              <span>Explore Platform Specs</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--emerald-primary);">● Full-Stack Live</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 3: ExfilSentinel: Insider Data Exfiltration Detection -->
+        <div class="project-card" data-category="security">
+          <span class="flagship-badge">🛡️ 94.6% Accuracy</span>
+          <div class="project-thumb-container">
+            <img src="assets/projects/sentinel_malware_hero.jpg" alt="ExfilSentinel Insider Detection Platform" class="project-thumb" />
+          </div>
+          <div class="project-body">
+            <div class="project-meta-top">
+              <span>FastAPI, React, MongoDB, XGBoost</span>
+              <span style="color:var(--emerald-primary);">90.9% F1 Score</span>
+            </div>
+            <h3 class="project-title">ExfilSentinel: Insider Data Exfiltration Detection</h3>
+            <p class="project-desc">
+              Privacy-preserving SOC platform to detect insider data exfiltration from behavioral telemetry without inspecting file contents. 
+              3-model ML ensemble (Isolation Forest, Random Forest, XGBoost) analyzing 12 metadata signals to generate 0–100 risk scores. 
+              Delivered real-time alerts, attack simulation, endpoint monitoring, and automated containment.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">XGBoost</span>
+              <span class="project-tag">Isolation Forest</span>
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">React</span>
+              <span class="project-tag">MongoDB</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <button class="project-link-btn" onclick="openProjectModal('exfilsentinel')">
+              <span>View SOC Architecture</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-primary);">SOC Security</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 4: CineAgent (Autonomous Agent Recommendation System) -->
+        <div class="project-card" data-category="ai">
+          <div class="project-thumb-container">
+            <img src="assets/projects/cineagent_hero.jpg" alt="CineAgent Movie Recommendation System UI" class="project-thumb" />
+          </div>
+          <div class="project-body">
+            <div class="project-meta-top">
+              <span>Mini-Project AY 2026–27</span>
+              <span style="color:var(--cyan-primary);">Academic Project</span>
+            </div>
+            <h3 class="project-title">CineAgent: AI Agent for Movie Recommendation</h3>
+            <p class="project-desc">
+              Autonomous agentic discovery engine integrating natural-language routing, 
+              <strong>TF-IDF vector representations</strong>, <strong>Cosine Similarity</strong>, 
+              and hybrid rating weighting. Features interactive Cinema Radar and Mood & Vibe Explorer deployed on Gradio.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Agentic AI</span>
+              <span class="project-tag">TF-IDF</span>
+              <span class="project-tag">Cosine Similarity</span>
+              <span class="project-tag">Gradio</span>
+              <span class="project-tag">Python</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <button class="project-link-btn" onclick="openProjectModal('cineagent')">
+              <span>View System Architecture</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--emerald-primary);">● Live Tested</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 5: Two-Stage Deep Learning Object Detection -->
+        <div class="project-card" data-category="ai">
+          <div class="project-thumb-container">
+            <img src="assets/projects/ml_roc_auc.png" alt="Two Stage Object Detection and ROC curves" class="project-thumb" />
+          </div>
+          <div class="project-body">
+            <div class="project-meta-top">
+              <span>Computer Vision Research</span>
+              <span style="color:var(--violet-primary);">PyTorch & CNN</span>
+            </div>
+            <h3 class="project-title">Two-Stage Deep Learning Object Detection</h3>
+            <p class="project-desc">
+              High-accuracy bounding-box localization using Region Proposal Networks (RPN) and feature pyramid pooling. 
+              Enhanced detection robustness on dense small-object datasets with optimized Non-Maximum Suppression (NMS).
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">PyTorch</span>
+              <span class="project-tag">RPN</span>
+              <span class="project-tag">Faster R-CNN</span>
+              <span class="project-tag">Computer Vision</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <button class="project-link-btn" onclick="openProjectModal('vision')">
+              <span>View Architecture</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">Team Project</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 6: Emotion-Aware Affective AI Framework -->
+        <div class="project-card" data-category="ai">
+          <div class="project-thumb-container">
+            <img src="assets/projects/hack_week_output.png" alt="Emotion Aware AI System Visualization" class="project-thumb" />
+          </div>
+          <div class="project-body">
+            <div class="project-meta-top">
+              <span>Soft Computing Case Study</span>
+              <span style="color:var(--cyan-primary);">Affective Computing</span>
+            </div>
+            <h3 class="project-title">Emotion-Aware Affective AI Framework</h3>
+            <p class="project-desc">
+              Soft computing case study evaluating fuzzy logic inference and multi-modal neural network architectures 
+              for facial micro-expression sentiment recognition and psychological state awareness.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Fuzzy Logic</span>
+              <span class="project-tag">Soft Computing</span>
+              <span class="project-tag">Sentiment AI</span>
+              <span class="project-tag">Case Study</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <button class="project-link-btn" onclick="openLightbox('assets/projects/hack_week_output.png', 'Emotion-Aware AI Pipeline Case Study')">
+              <span>View Case Study Report</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--emerald-primary);">Completed</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="section-nav-footer">
+        <button class="btn-section-nav" data-target-view="skills">
+          <span>← Technical Skills</span>
+        </button>
+        <button class="btn-back-hub" data-target-view="home">
+          <span>🏠 Hub Overview</span>
+        </button>
+        <button class="btn-section-nav" data-target-view="patent">
+          <span>Patent & Honors →</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       VIEW 7: PUBLISHED PATENT & HONORS VIEW
+       ========================================================================= -->
+  <main class="view-panel" id="view-patent">
+    <div class="container">
+      <div class="view-header-bar">
+        <button class="btn-back-hub" data-target-view="home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Back to Overview</span>
+        </button>
+        <div class="view-breadcrumbs">
+          <a href="#home" data-target-view="home">Overview</a>
+          <span>/</span>
+          <span style="color:#ffffff;">Patent & Honors</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-tag">Intellectual Property & Honors</span>
+        <h2 class="section-title">Published Patent & <span class="gradient-text">Key Achievements</span></h2>
+        <p class="section-subtitle">
+          Validated research innovations and university-level distinctions.
+        </p>
+      </div>
+
+      <!-- Spotlight Card: Published Patent -->
+      <div class="patent-spotlight-card">
+        <div class="patent-grid" style="grid-template-columns: 1fr; gap: 24px;">
+          <div class="patent-info">
+            <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+              <div class="patent-meta-badge">
+                <span>🇮🇳 Patent Office Government of India • Official Journal Publication</span>
+              </div>
+              <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--emerald-primary); background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.3); padding:4px 12px; border-radius:var(--radius-full);">
+                ● Application No. 202521127184 A
+              </span>
+            </div>
+
+            <h3 class="patent-title" style="font-size:clamp(1.5rem, 2.8vw, 2.1rem); font-weight:800; letter-spacing:-0.02em; margin-top:8px;">
+              A COMPUTER-IMPLEMENTED TIME-SERIES FORECASTING SYSTEM
+            </h3>
+
+            <p class="patent-desc">
+              Officially published in <strong>The Patent Office Journal No. 1/2026 (Dated 02/01/2026, Page 385)</strong> under the Government of India Patent Office. 
+              The invention details a state-of-the-art hybrid predictive system combining statistical 
+              <strong>AutoRegressive Integrated Moving Average (ARIMA)</strong> and deep recurrent 
+              <strong>Long Short-Term Memory (LSTM) Neural Networks</strong> with automated sliding-window sequence generators for high-precision temporal projections.
+            </p>
+
+            <!-- Legal Metadata Matrix -->
+            <div class="patent-meta-matrix">
+              <div class="patent-meta-item">
+                <span class="patent-meta-label">Application Number</span>
+                <span class="patent-meta-val highlight-amber">202521127184 A</span>
+              </div>
+              <div class="patent-meta-item">
+                <span class="patent-meta-label">Date of Filing</span>
+                <span class="patent-meta-val">15/12/2025</span>
+              </div>
+              <div class="patent-meta-item">
+                <span class="patent-meta-label">Publication Date</span>
+                <span class="patent-meta-val highlight-amber">02/01/2026</span>
+              </div>
+              <div class="patent-meta-item">
+                <span class="patent-meta-label">Official Journal</span>
+                <span class="patent-meta-val">Issue No. 1/2026 (Page 385)</span>
+              </div>
+              <div class="patent-meta-item">
+                <span class="patent-meta-label">Applicant Institution</span>
+                <span class="patent-meta-val">Symbiosis International (Deemed University)</span>
+              </div>
+              <div class="patent-meta-item">
+                <span class="patent-meta-label">Jurisdiction</span>
+                <span class="patent-meta-val">Patent Office, India (IN)</span>
+              </div>
+              <div class="patent-meta-item">
+                <span class="patent-meta-label">International Classification (IPC)</span>
+                <span class="patent-meta-val" style="font-family:var(--font-mono); font-size:0.82rem; color:var(--cyan-primary);">
+                  G06N 3/04, 3/08, 20/00; G06Q 10/04
+                </span>
+              </div>
+              <div class="patent-meta-item">
+                <span class="patent-meta-label">Specification Scope</span>
+                <span class="patent-meta-val">12 Pages • 10 Legal Claims</span>
+              </div>
+            </div>
+
+            <!-- Inventors Roster -->
+            <div class="patent-inventors-wrapper">
+              <div class="patent-inventors-title">Certified Inventors Roster (Gazette Record 72)</div>
+              <div class="patent-inventors-list">
+                <div class="patent-inventor-chip">
+                  <span>1.</span> <span>Dr. Deepak Suresh Asudani</span>
+                </div>
+                <div class="patent-inventor-chip">
+                  <span>2.</span> <span>Shubham Chakraborty</span>
+                </div>
+                <div class="patent-inventor-chip co-author-highlight">
+                  <span>⭐ 3.</span> <span><strong>Siddhant Bahekar</strong> (Co-Inventor)</span>
+                </div>
+                <div class="patent-inventor-chip">
+                  <span>4.</span> <span>Sumedh Yete</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Verbatim Official Abstract from Gazette Entry -->
+            <div class="patent-abstract-container">
+              <div class="patent-abstract-header">
+                <span class="patent-abstract-title">Official Gazette Abstract (Record 57)</span>
+                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">Published with Figure 1</span>
+              </div>
+              <p class="patent-abstract-text">
+                "A computer-implemented time-series forecasting system (100) receives sequential time-series data via input module (101, 201). 
+                Data-splitting module (102, 203) divides it into training and testing datasets, with preprocessing module (202) normalizing, 
+                scaling, smoothing, or differencing data. Dataset-creation module (204) generates supervised sequences using sliding-window 
+                mechanisms for LSTM model module (205), while ARIMA model module (103) determines parameters (p, d, q). 
+                Model-training module (104, 206) trains both models on training data. Prediction module (105, 207) produces outputs, 
+                inverse-transformed by module (208) to original scale. Error-metrics module (107, 209) computes accuracy using actual 
+                values from module (106). Future-forecast module (108) enables multi-step projections, enhancing hybrid forecasting precision."
+              </p>
+            </div>
+
+            <!-- Action Buttons Row -->
+            <div style="margin-top:20px; display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+              <a href="assets/docs/Patent_Publication_Copy_202521127184.pdf" download="Patent_Publication_Copy_202521127184.pdf" class="btn-patent" style="text-decoration:none;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Download Official Publication PDF</span>
+              </a>
+
+              <button class="btn-secondary" onclick="openLightbox('assets/certificates/patent_publication_page_2.png', 'Government of India Official Patent Journal Page 385 (Application No. 202521127184 A)')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <span>Inspect Gazette Page 385</span>
+              </button>
+
+              <button class="btn-secondary" onclick="openLightbox('assets/certificates/patent_publication_page_1.png', 'Official Journal of the Patent Office Cover - Issue No. 1/2026 Dated 02/01/2026')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <span>View Journal Cover Page</span>
+              </button>
+            </div>
+
+            <!-- Dual Document Inspection Gallery -->
+            <div class="patent-docs-dual-grid">
+              
+              <!-- Doc 1: Official Journal Cover -->
+              <div class="patent-doc-card">
+                <div class="patent-doc-thumb-wrapper" onclick="openLightbox('assets/certificates/patent_publication_page_1.png', 'Official Journal of the Patent Office - Cover Page (Issue 1/2026, 02/01/2026)')">
+                  <img src="assets/certificates/patent_publication_page_1.png" alt="Official Journal Cover Page 1" class="patent-doc-thumb" />
+                  <div class="patent-doc-overlay">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span>Click to Zoom Cover Page</span>
+                  </div>
+                </div>
+                <div class="patent-doc-footer">
+                  <div>
+                    <div class="patent-doc-caption">Official Journal Cover Page</div>
+                    <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">Issue No. 1/2026 • 02/01/2026</div>
+                  </div>
+                  <span class="patent-doc-action-btn" onclick="openLightbox('assets/certificates/patent_publication_page_1.png', 'Official Journal Cover Page')">
+                    <span>Fullscreen</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Doc 2: Publication Gazette Page 385 -->
+              <div class="patent-doc-card">
+                <div class="patent-doc-thumb-wrapper" onclick="openLightbox('assets/certificates/patent_publication_page_2.png', 'Official Patent Gazette Record - Page 385 (Application No. 202521127184 A)')">
+                  <img src="assets/certificates/patent_publication_page_2.png" alt="Patent Publication Gazette Entry Page 385" class="patent-doc-thumb" />
+                  <div class="patent-doc-overlay">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span>Click to Zoom Gazette Record</span>
+                  </div>
+                </div>
+                <div class="patent-doc-footer">
+                  <div>
+                    <div class="patent-doc-caption">Gazette Publication Entry (Page 385)</div>
+                    <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--emerald-primary);">Legal Verification Document</div>
+                  </div>
+                  <span class="patent-doc-action-btn" onclick="openLightbox('assets/certificates/patent_publication_page_2.png', 'Official Patent Gazette Page 385')">
+                    <span>Fullscreen</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Claimed Subsystems Architecture (From Patent Claims) -->
+            <div style="margin-top:36px;">
+              <h4 style="font-size:1.15rem; color:#ffffff; font-weight:700; margin-bottom:6px;">
+                ⚙️ Claimed System Subsystems & Modular Architecture
+              </h4>
+              <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:16px;">
+                Overview of the 6 key modules as detailed in the official patent specification and Figure 1:
+              </p>
+
+              <div class="patent-modules-grid">
+                
+                <div class="patent-subsystem-card">
+                  <span class="patent-subsystem-tag">Module 101, 201</span>
+                  <div class="patent-subsystem-title">Sequential Time-Series Input</div>
+                  <p class="patent-subsystem-desc">
+                    Receives multi-variate sequential financial time-series streams and structures temporal timestamps for downstream processing.
+                  </p>
+                </div>
+
+                <div class="patent-subsystem-card">
+                  <span class="patent-subsystem-tag">Module 102, 202, 203</span>
+                  <div class="patent-subsystem-title">Data Partitioning & Preprocessing</div>
+                  <p class="patent-subsystem-desc">
+                    Normalizes, scales, smooths, and differences data to isolate stationary trends from stochastic market noise.
+                  </p>
+                </div>
+
+                <div class="patent-subsystem-card">
+                  <span class="patent-subsystem-tag">Module 204</span>
+                  <div class="patent-subsystem-title">Sliding-Window Dataset Creation</div>
+                  <p class="patent-subsystem-desc">
+                    Generates supervised sequence matrices using sliding temporal windows optimized for deep recurrent backpropagation.
+                  </p>
+                </div>
+
+                <div class="patent-subsystem-card">
+                  <span class="patent-subsystem-tag">Module 103, 205</span>
+                  <div class="patent-subsystem-title">Hybrid ARIMA + LSTM Dual Core</div>
+                  <p class="patent-subsystem-desc">
+                    ARIMA dynamically determines (p, d, q) parameters for linear trends while the LSTM captures complex non-linear residual sequences.
+                  </p>
+                </div>
+
+                <div class="patent-subsystem-card">
+                  <span class="patent-subsystem-tag">Module 104, 105, 206, 207</span>
+                  <div class="patent-subsystem-title">Parallel Training & Prediction</div>
+                  <p class="patent-subsystem-desc">
+                    Trains both architectures concurrently on the partitioned training data and generates synchronized predictive vectors.
+                  </p>
+                </div>
+
+                <div class="patent-subsystem-card">
+                  <span class="patent-subsystem-tag">Module 107, 108, 208, 209</span>
+                  <div class="patent-subsystem-title">Inverse-Transform & Error Verification</div>
+                  <p class="patent-subsystem-desc">
+                    Maps predictions back to real market scale, calculates RMSE/R² accuracy metrics, and enables robust multi-step forward forecasting.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Achievements Grid from Resume -->
+      <div class="achievements-grid">
+        
+        <!-- Top Performer, IRP -->
+        <div class="achievement-card">
+          <div class="achievement-icon">🎖️</div>
+          <div class="achievement-title">Top Performer, IRP</div>
+          <div class="achievement-org">Symbiosis Institute of Technology (2025–26)</div>
+          <p class="achievement-desc">
+            Awarded the prestigious Certificate of Achievement for ranking among the top performers at SIT Nagpur across rigorous continuous evaluation.
+          </p>
+        </div>
+
+        <!-- SIT Nagpur Enthusia 5.0 -->
+        <div class="achievement-card">
+          <div class="achievement-icon">⚔️</div>
+          <div class="achievement-title">SIT Nagpur Enthusia 5.0</div>
+          <div class="achievement-org">Boardroom Battle Contestant</div>
+          <p class="achievement-desc">
+            Participated in the high-stakes Enthusia 5.0 Boardroom Battle, demonstrating executive problem-solving, strategic decision-making, and rapid communication.
+          </p>
+        </div>
+
+        <!-- Adobe University Hackathon -->
+        <div class="achievement-card">
+          <div class="achievement-icon">🎨</div>
+          <div class="achievement-title">Adobe University Hackathon</div>
+          <div class="achievement-org">Adobe Global Campus Contest</div>
+          <p class="achievement-desc">
+            Awarded official Certificate of Participation & Distinction for rapid prototyping of creative, user-centric AI solutions.
+          </p>
+        </div>
+
+        <!-- ServiceNow Virtual Internship Distinction -->
+        <div class="achievement-card">
+          <div class="achievement-icon">🏆</div>
+          <div class="achievement-title">ServiceNow Virtual Internship Distinction</div>
+          <div class="achievement-org">AICTE & SmartBridge</div>
+          <p class="achievement-desc">
+            Successfully completed comprehensive enterprise training covering Agentic AI, ServiceNow Administration, Flow Designer, and Automated Test Framework (ID: SNU2004997).
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="section-nav-footer">
+        <button class="btn-section-nav" data-target-view="projects">
+          <span>← Flagship Projects</span>
+        </button>
+        <button class="btn-back-hub" data-target-view="home">
+          <span>🏠 Hub Overview</span>
+        </button>
+        <button class="btn-section-nav" data-target-view="certificates">
+          <span>Certifications →</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       VIEW 8: VERIFIED CERTIFICATES VIEW
+       ========================================================================= -->
+  <main class="view-panel" id="view-certificates">
+    <div class="container">
+      <div class="view-header-bar">
+        <button class="btn-back-hub" data-target-view="home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Back to Overview</span>
+        </button>
+        <div class="view-breadcrumbs">
+          <a href="#home" data-target-view="home">Overview</a>
+          <span>/</span>
+          <span style="color:#ffffff;">Verified Certifications</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-tag">Verified Credentials</span>
+        <h2 class="section-title">Industry <span class="gradient-text">Certifications</span></h2>
+        <p class="section-subtitle">
+          Credentials validated by global software leaders including ServiceNow, Red Hat, IBM SkillsBuild, and Infosys.
+        </p>
+      </div>
+
+      <div class="certificates-grid">
+        
+        <!-- PREMIER CREDENTIAL: Official Patent Office Journal Publication -->
+        <div class="certificate-card" style="border-color: rgba(245, 158, 11, 0.4); background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, var(--bg-card) 100%);">
+          <div class="cert-thumb-box" onclick="openLightbox('assets/certificates/patent_publication_page_2.png', 'Government of India Official Patent Journal Publication - App No. 202521127184 A')">
+            <img src="assets/certificates/patent_publication_page_2.png" alt="Official Patent Journal Publication" class="cert-thumb" />
+            <div class="cert-hover-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span>Inspect Official Gazette Page</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer" style="color:#fbbf24;">Patent Office • Government of India</div>
+            <h3 class="cert-title">A Computer-Implemented Time-Series Forecasting System</h3>
+            <p class="cert-id">Application No: 202521127184 A | Journal Issue No. 1/2026, Page 385</p>
+          </div>
+          <div class="cert-footer">
+            <a href="assets/docs/Patent_Publication_Copy_202521127184.pdf" download="Patent_Publication_Copy_202521127184.pdf" class="cert-verify-link" style="color:#fbbf24;">
+              <span>Download Publication PDF</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:#fbbf24;">⭐ Patent Published</span>
+          </div>
+        </div>
+
+        <!-- 1. ServiceNow Virtual Internship Program -->
+        <div class="certificate-card">
+          <div class="cert-thumb-box" onclick="openLightbox('assets/certificates/servicenow_full_internship.png', 'ServiceNow Virtual Internship Program Completion Certificate')">
+            <img src="assets/certificates/servicenow_full_internship.png" alt="ServiceNow Virtual Internship Certificate" class="cert-thumb" />
+            <div class="cert-hover-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span>View Full Document</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">ServiceNow • AICTE • SmartBridge</div>
+            <h3 class="cert-title">Virtual Internship Program (Agentic AI & ITSM)</h3>
+            <p class="cert-id">Certificate ID: SNU2004997 | Issued: Oct 2025</p>
+          </div>
+          <div class="cert-footer">
+            <button class="cert-verify-link" onclick="openLightbox('assets/certificates/servicenow_full_internship.png', 'ServiceNow Certificate')">
+              <span>Inspect Credential</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--emerald-primary);">● Verified</span>
+          </div>
+        </div>
+
+        <!-- 2. Red Hat System Administration I (RH124) -->
+        <div class="certificate-card">
+          <div class="cert-thumb-box" onclick="openLightbox('assets/certificates/redhat_attendance_cert.png', 'Red Hat System Administration I (RH124 - RHA) Ver. 10 Certificate')">
+            <img src="assets/certificates/redhat_attendance_cert.png" alt="Red Hat RH124 Certificate" class="cert-thumb" />
+            <div class="cert-hover-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span>View Full Document</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Red Hat Training & Certification</div>
+            <h3 class="cert-title">Red Hat System Administration I (RH124 - Ver. 10)</h3>
+            <p class="cert-id">Verified on Credly: 1b1e3dbb-5ddb-4a42-888d-695cfd7</p>
+          </div>
+          <div class="cert-footer">
+            <a href="https://www.credly.com/badges/1b1e3dbb-5ddb-4a42-888d-695cfd7" target="_blank" rel="noopener noreferrer" class="cert-verify-link">
+              <span>Verify on Credly</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--rose-primary);">Red Hat Certified</span>
+          </div>
+        </div>
+
+        <!-- 3. IBM SkillsBuild AI & ML -->
+        <div class="certificate-card">
+          <div class="cert-thumb-box" onclick="openLightbox('assets/certificates/ibm_aiml_cert.png', 'IBM SkillsBuild Artificial Intelligence & Machine Learning Certificate')">
+            <img src="assets/certificates/ibm_aiml_cert.png" alt="IBM SkillsBuild Certificate" class="cert-thumb" />
+            <div class="cert-hover-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span>View Full Document</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">IBM SkillsBuild & Edunet Foundation</div>
+            <h3 class="cert-title">Artificial Intelligence & Machine Learning</h3>
+            <p class="cert-id">Credential validation via Edunet & IBM SkillsBuild</p>
+          </div>
+          <div class="cert-footer">
+            <button class="cert-verify-link" onclick="openLightbox('assets/certificates/ibm_aiml_cert.png', 'IBM Certificate')">
+              <span>Inspect Credential</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-primary);">IBM Verified</span>
+          </div>
+        </div>
+
+        <!-- 4. Adobe University Hackathon -->
+        <div class="certificate-card">
+          <div class="cert-thumb-box" onclick="openLightbox('assets/certificates/adobe_hackathon.png', 'Adobe University Hackathon Certificate of Participation')">
+            <img src="assets/certificates/adobe_hackathon.png" alt="Adobe Hackathon Certificate" class="cert-thumb" />
+            <div class="cert-hover-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span>View Full Document</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Adobe Education</div>
+            <h3 class="cert-title">Adobe University Hackathon Participation</h3>
+            <p class="cert-id">Awarded to Siddhant Bahekar for innovative engineering</p>
+          </div>
+          <div class="cert-footer">
+            <button class="cert-verify-link" onclick="openLightbox('assets/certificates/adobe_hackathon.png', 'Adobe Hackathon')">
+              <span>Inspect Credential</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--rose-primary);">Adobe Contest</span>
+          </div>
+        </div>
+
+        <!-- 5. Maincrafts Internship & LOR -->
+        <div class="certificate-card">
+          <div class="cert-thumb-box" onclick="openLightbox('assets/certificates/maincrafts_internship.png', 'Maincrafts Certificate of Internship')">
+            <img src="assets/certificates/maincrafts_internship.png" alt="Maincrafts Certificate" class="cert-thumb" />
+            <div class="cert-hover-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span>View Full Document</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Maincrafts Technology</div>
+            <h3 class="cert-title">AI/ML Internship & Official Letter of Recommendation</h3>
+            <p class="cert-id">Completed with official Letter of Recommendation (LOR)</p>
+          </div>
+          <div class="cert-footer">
+            <button class="cert-verify-link" onclick="openLightbox('assets/certificates/maincrafts_lor.png', 'Letter of Recommendation - Maincrafts')">
+              <span>View Letter of Rec</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--emerald-primary);">Industry LOR</span>
+          </div>
+        </div>
+
+        <!-- 6. ServiceNow Micro-Certification -->
+        <div class="certificate-card">
+          <div class="cert-thumb-box" onclick="openLightbox('assets/certificates/servicenow_micro_cert.png', 'Welcome to ServiceNow Micro Certification')">
+            <img src="assets/certificates/servicenow_micro_cert.png" alt="Welcome to ServiceNow Micro-Certification" class="cert-thumb" />
+            <div class="cert-hover-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span>View Full Document</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">ServiceNow University</div>
+            <h3 class="cert-title">Micro-Certification: Welcome to ServiceNow</h3>
+            <p class="cert-id">Core platform architecture and automation models</p>
+          </div>
+          <div class="cert-footer">
+            <button class="cert-verify-link" onclick="openLightbox('assets/certificates/servicenow_micro_cert.png', 'ServiceNow Micro-Cert')">
+              <span>Inspect Credential</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-primary);">Micro-Cert</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="section-nav-footer">
+        <button class="btn-section-nav" data-target-view="patent">
+          <span>← Patent & Honors</span>
+        </button>
+        <button class="btn-back-hub" data-target-view="home">
+          <span>🏠 Hub Overview</span>
+        </button>
+        <button class="btn-section-nav" data-target-view="gallery">
+          <span>Photo Gallery →</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       VIEW 9: PHOTO GALLERY & CAMPUS HIGHLIGHTS VIEW
+       ========================================================================= -->
+  <main class="view-panel" id="view-gallery">
+    <div class="container">
+      <div class="view-header-bar">
+        <button class="btn-back-hub" data-target-view="home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Back to Overview</span>
+        </button>
+        <div class="view-breadcrumbs">
+          <a href="#home" data-target-view="home">Overview</a>
+          <span>/</span>
+          <span style="color:#ffffff;">Photo Gallery</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-tag">Campus Life & Activities</span>
+        <h2 class="section-title">Academic & <span class="gradient-text">Professional Highlights</span></h2>
+        <p class="section-subtitle">
+          Visual record of academic presentations at Symbiosis SIT, professional profile, and verified credentials.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        
+        <!-- Photo 1: IRP Top Performers (Technical) Felicitation (Span 2) -->
+        <div class="gallery-item span-2" onclick="openLightbox('assets/photos/stage_photo.jpg', 'IRP Top Performers (Technical) Felicitation at Symbiosis Institute of Technology (SIT), Nagpur')">
+          <img src="assets/photos/stage_photo.jpg" alt="IRP Top Performers (Technical) Felicitation at SIT Nagpur" class="gallery-img" />
+          <div class="gallery-overlay">
+            <div class="gallery-caption">IRP Top Performers (Technical)</div>
+            <div class="gallery-sub">Symbiosis Institute of Technology (SIT), Nagpur Auditorium</div>
+          </div>
+        </div>
+
+        <!-- Photo 2: User Attached Portrait Photo -->
+        <div class="gallery-item" onclick="openLightbox('assets/photos/siddhant_profile.jpg', 'Siddhant Shamkumar Bahekar - Profile Portrait')">
+          <img src="assets/photos/siddhant_profile.jpg" alt="Siddhant Shamkumar Bahekar portrait" class="gallery-img" />
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Siddhant Shamkumar Bahekar</div>
+            <div class="gallery-sub">B.Tech CSE (AI/ML) Undergraduate</div>
+          </div>
+        </div>
+
+        <!-- Photo 3: Official ServiceNow Photo Badge -->
+        <div class="gallery-item" onclick="openLightbox('assets/photos/servicenow_cert.jpg', 'ServiceNow Certified Student Achievement')">
+          <img src="assets/photos/servicenow_cert.jpg" alt="ServiceNow Certified photo" class="gallery-img" />
+          <div class="gallery-overlay">
+            <div class="gallery-caption">ServiceNow Certified Cohort</div>
+            <div class="gallery-sub">National Virtual Internship Program by AICTE & SmartBridge</div>
+          </div>
+        </div>
+
+        <!-- Photo 4: Red Hat RH124 Badge -->
+        <div class="gallery-item" onclick="openLightbox('assets/photos/redhat_badge.png', 'Red Hat System Administration I (RH124) Official Digital Badge')">
+          <img src="assets/photos/redhat_badge.png" alt="Red Hat Badge" class="gallery-img" style="object-fit:contain; background:#111; padding:20px;" />
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Red Hat RH124 Official Badge</div>
+            <div class="gallery-sub">Enterprise Linux System Administration Verification</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="section-nav-footer">
+        <button class="btn-section-nav" data-target-view="certificates">
+          <span>← Certifications</span>
+        </button>
+        <button class="btn-back-hub" data-target-view="home">
+          <span>🏠 Hub Overview</span>
+        </button>
+        <button class="btn-section-nav" data-target-view="contact">
+          <span>Contact Me →</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       VIEW 10: CONTACT & COMMUNICATION VIEW
+       ========================================================================= -->
+  <main class="view-panel" id="view-contact">
+    <div class="container">
+      <div class="view-header-bar">
+        <button class="btn-back-hub" data-target-view="home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Back to Overview</span>
+        </button>
+        <div class="view-breadcrumbs">
+          <a href="#home" data-target-view="home">Overview</a>
+          <span>/</span>
+          <span style="color:#ffffff;">Contact</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-tag">Let's Connect</span>
+        <h2 class="section-title">Get In Touch With <span class="gradient-text">Siddhant</span></h2>
+        <p class="section-subtitle">
+          Have an internship opportunity, research collaboration, or technical inquiry? Let's start a conversation.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Left: Contact Information Cards with exact info from resume -->
+        <div class="contact-info-card">
+          <h3 style="font-size:1.4rem; color:#ffffff; margin-bottom:8px;">Contact Details</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:20px;">
+            Feel free to reach out via direct email, telephone, or connect on LinkedIn and GitHub.
+          </p>
+
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-detail">
+              <h5>Email Address</h5>
+              <a href="mailto:bahekarsiddhant@gmail.com">bahekarsiddhant@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-detail">
+              <h5>Telephone</h5>
+              <a href="tel:+918010580569">+91 8010580569</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div class="contact-detail">
+              <h5>LinkedIn Profile</h5>
+              <a href="https://linkedin.com/in/siddhant-bahekar-7711a7315" target="_blank" rel="noopener noreferrer">
+                linkedin.com/in/siddhant-bahekar-7711a7315
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <div class="contact-detail">
+              <h5>GitHub Repository</h5>
+              <a href="https://github.com/SiddhantBahekar" target="_blank" rel="noopener noreferrer">
+                github.com/SiddhantBahekar
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-detail">
+              <h5>Institution & Location</h5>
+              <p>Symbiosis International University (SIT), Nagpur<br />Maharashtra, India — 440008</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div class="contact-detail">
+              <h5>Updated Resume / CV</h5>
+              <a href="assets/docs/Siddhant_Bahekar_Resume.pdf" download="Siddhant_Bahekar_Resume.pdf" style="color:var(--cyan-primary);">
+                Download Siddhant_Bahekar_Resume.pdf ↓
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Contact Form -->
+        <form class="contact-form" id="portfolio-contact-form" action="https://formsubmit.co/bahekarsiddhant@gmail.com" method="POST">
+          <input type="hidden" name="_replyto" id="form-replyto" value="" />
+          <input type="hidden" name="_subject" id="form-subject-header" value="New Portfolio Message for Siddhant Bahekar" />
+          <input type="hidden" name="⏰ Indian_Standard_Time_IST" id="form-time-ist" value="" />
+          <input type="hidden" name="🕒 Timezone_Notice" value="FormSubmit footer displays UTC (-5:30 hrs behind India). Actual submission time was Indian Standard Time (IST) listed above." />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="recipient_inbox" value="bahekarsiddhant@gmail.com" />
+
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:1.4rem; color:#ffffff; margin:0;">Send a Direct Message</h3>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--emerald-primary); background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); padding:3px 10px; border-radius:var(--radius-full);">
+              Direct to bahekarsiddhant@gmail.com
+            </span>
+          </div>
+          
+          <div id="form-alert" class="form-alert"></div>
+
+          <div class="form-group">
+            <label for="sender-name" class="form-label">Your Name / Recruiter Name *</label>
+            <input type="text" id="sender-name" name="name" class="form-control" placeholder="e.g. John Doe / Hiring Manager" required />
+          </div>
+
+          <div class="form-group">
+            <label for="sender-email" class="form-label">Your Email Address (Required for reply) *</label>
+            <input type="email" id="sender-email" name="email" class="form-control" placeholder="e.g. yourname@company.com" required />
+            <span style="font-size:0.78rem; color:var(--text-muted); margin-top:2px;">
+              Your email will be directly included in the notification sent to bahekarsiddhant@gmail.com so Siddhant can reply directly.
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="sender-subject" class="form-label">Subject / Position</label>
+            <input type="text" id="sender-subject" name="subject" class="form-control" placeholder="e.g. Summer 2027 AI Internship / SDE Role / Collaboration" />
+          </div>
+
+          <div class="form-group">
+            <label for="sender-message" class="form-label">Your Message *</label>
+            <textarea id="sender-message" name="message" class="form-control" placeholder="Write your message here... (Please ensure you mention any preferred contact details or role specifications)" required></textarea>
+          </div>
+
+          <button type="submit" id="contact-submit-btn" class="btn-primary" style="justify-content:center; padding:14px;">
+            <span id="btn-text">Send Message to Siddhant's Inbox</span>
+            <svg id="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+
+          <p style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin:0;">
+            ✉ Messages deliver directly to <strong>bahekarsiddhant@gmail.com</strong>.
+          </p>
+        </form>
+
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="section-nav-footer">
+        <button class="btn-section-nav" data-target-view="gallery">
+          <span>← Photo Gallery</span>
+        </button>
+        <button class="btn-back-hub" data-target-view="home">
+          <span>🏠 Hub Overview</span>
+        </button>
+        <button class="btn-section-nav" data-target-view="home">
+          <span>Back to Top ↑</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER (PERSISTENT ACROSS VIEWS)
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-bio">
+          <div class="nav-brand" style="margin-bottom:12px;">
+            <img src="assets/photos/siddhant_profile.jpg" alt="Siddhant Shamkumar Bahekar" class="brand-avatar" />
+            <span>Siddhant Shamkumar Bahekar</span>
+          </div>
+          <p>
+            B.Tech Computer Science (Major in AI/ML) undergraduate at Symbiosis International University, Nagpur. 
+            Published Patent holder for financial time-series forecasting, former AI/ML Intern at Maincrafts, and ServiceNow Virtual Intern.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Portal Sections</h4>
+          <ul class="footer-links">
+            <li><a href="#about" class="footer-link" data-target-view="about">About Me</a></li>
+            <li><a href="#experience" class="footer-link" data-target-view="experience">Work Experience</a></li>
+            <li><a href="#education" class="footer-link" data-target-view="education">Education & Performance</a></li>
+            <li><a href="#skills" class="footer-link" data-target-view="skills">Technical Skills</a></li>
+            <li><a href="#projects" class="footer-link" data-target-view="projects">Flagship Projects</a></li>
+            <li><a href="#patent" class="footer-link" data-target-view="patent">Patent & Awards</a></li>
+            <li><a href="#certificates" class="footer-link" data-target-view="certificates">Verified Certifications</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect & Credentials</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:bahekarsiddhant@gmail.com" class="footer-link">Email: bahekarsiddhant@gmail.com</a></li>
+            <li><a href="https://github.com/SiddhantBahekar" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub: SiddhantBahekar</a></li>
+            <li><a href="https://linkedin.com/in/siddhant-bahekar-7711a7315" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn Profile</a></li>
+            <li><a href="https://www.credly.com/badges/1b1e3dbb-5ddb-4a42-888d-695cfd7" target="_blank" rel="noopener noreferrer" class="footer-link">Credly Red Hat Badge</a></li>
+            <li><a href="assets/docs/Siddhant_Bahekar_Resume.pdf" download="Siddhant_Bahekar_Resume.pdf" class="footer-link">Download Updated Resume (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Siddhant Shamkumar Bahekar. All Rights Reserved. PRN: 24070521077.
+        </div>
+        <div>
+          Symbiosis Institute of Technology (SIT), Nagpur | Continuous Assessment (CA3) Submission
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top-btn" class="back-to-top" aria-label="Scroll Back to Top" title="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- =========================================================================
+       MODALS
+       ========================================================================= -->
+
+  <!-- 1. Executive Summary Modal (Recruiter Mode) -->
+  <div class="executive-modal" id="executive-summary-modal" role="dialog" aria-modal="true" aria-label="Executive Recruiter Summary">
+    <div class="executive-modal-box">
+      <button class="modal-close-btn" id="recruiter-modal-close" aria-label="Close modal">✕</button>
+      <span class="section-tag">Executive Summary</span>
+      <h2 style="font-size:1.85rem; color:#fff; margin-top:8px;">Recruiter Fast-Track Dossier</h2>
+      <p style="color:var(--text-secondary); font-size:0.95rem;">
+        Essential career highlights, technical competencies, and verified achievements of <strong>Siddhant Shamkumar Bahekar</strong>.
+      </p>
+
+      <div class="executive-grid">
+        <div class="executive-card">
+          <h4>🎓 Academic Profile</h4>
+          <ul>
+            <li><span>✔</span> Degree: B.Tech in CSE (Major in AI/ML)</li>
+            <li><span>✔</span> University: Symbiosis International University</li>
+            <li><span>✔</span> Institute: SIT Nagpur (Aug 2024–May 2028, Sem 5)</li>
+            <li><span>✔</span> Top Performer IRP at SIT Nagpur (2025–26)</li>
+          </ul>
+        </div>
+
+        <div class="executive-card">
+          <h4>🏆 Notable Honors & Experience</h4>
+          <ul>
+            <li><span>✔</span> Published Indian Patent #202521127184 (ARIMA-LSTM)</li>
+            <li><span>✔</span> AI/ML Intern @ Maincrafts (RMSE reduced to 0.6389)</li>
+            <li><span>✔</span> Python Intern @ Kodbud (CLI Chatbot & Tools)</li>
+            <li><span>✔</span> ServiceNow Virtual Intern (AICTE / SmartBridge)</li>
+          </ul>
+        </div>
+
+        <div class="executive-card">
+          <h4>💻 Core Technical Stack</h4>
+          <ul>
+            <li><span>✔</span> Languages: Java, Python, SQL (Oracle), JavaScript, HTML/CSS</li>
+            <li><span>✔</span> Frameworks: React, Node.js, Express, FastAPI, Flask, PyTorch, TensorFlow</li>
+            <li><span>✔</span> Tools: Git, GCP, VS Code, Visual Studio, Colab, Jupyter</li>
+            <li><span>✔</span> ML: pandas, NumPy, Scikit-learn, XGBoost, Seaborn, Matplotlib</li>
+          </ul>
+        </div>
+
+        <div class="executive-card">
+          <h4>🎯 Target Roles & Availability</h4>
+          <ul>
+            <li><span>✔</span> AI/ML Engineering Intern</li>
+            <li><span>✔</span> Software Development Engineer (SDE) Intern</li>
+            <li><span>✔</span> Full-Stack Developer Intern (FastAPI + React)</li>
+            <li><span>✔</span> Available Summer 2027 (On-site / Hybrid / Remote)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; padding-top:16px; border-top:1px solid var(--border-subtle);">
+        <div style="font-size:0.88rem; color:var(--text-muted);">
+          Contact: <a href="mailto:bahekarsiddhant@gmail.com" style="color:var(--cyan-primary);">bahekarsiddhant@gmail.com</a> | +91 8010580569
+        </div>
+        <a href="assets/docs/Siddhant_Bahekar_Resume.pdf" download="Siddhant_Bahekar_Resume.pdf" class="btn-primary">
+          <span>Download Updated Resume (PDF)</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Project Architecture Detail Modal -->
+  <div class="project-modal" id="project-detail-modal" role="dialog" aria-modal="true" aria-label="Project Details Modal">
+    <div class="project-modal-box">
+      <button class="modal-close-btn" id="project-modal-close" aria-label="Close modal">✕</button>
+      <div id="project-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- 3. Fullscreen Certificate / Gallery Lightbox -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image Preview Lightbox">
+    <div class="lightbox-content">
+      <button class="modal-close-btn" id="lightbox-close" style="position:static; align-self:flex-end;" aria-label="Close lightbox">✕</button>
+      <img src="" alt="Fullscreen Certificate or Activity" class="lightbox-img" id="lightbox-img" />
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- 4. Quick Command Palette (Ctrl + K) -->
+  <div class="cmd-modal" id="cmd-palette-modal" role="dialog" aria-modal="true" aria-label="Command Search Palette">
+    <div class="cmd-box">
+      <div class="cmd-input-wrapper">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="cmd-palette-input" class="cmd-input" placeholder="Type a section or keyword (e.g. Patent, ExfilSentinel, Maincrafts, CineAgent, Skills)..." />
+        <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">ESC to close</span>
+      </div>
+      <div class="cmd-results" id="cmd-palette-results"></div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>
