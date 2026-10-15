@@ -3233,3 +3233,653 @@ textarea.form-control {
   transform: translateY(-2px);
 }
 
+/* =========================================================================
+   OWNER ACCESS & LINKEDIN-STYLE "WHO VIEWED YOUR PROFILE" ANALYTICS SUITE
+   ========================================================================= */
+
+/* Footer Owner Access Trigger Button */
+.owner-access-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 102, 194, 0.12);
+  border: 1px solid rgba(10, 102, 194, 0.35);
+  border-radius: var(--radius-full);
+  padding: 5px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #70b5f9;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 12px rgba(10, 102, 194, 0.15);
+}
+
+.owner-access-btn:hover {
+  background: rgba(10, 102, 194, 0.28);
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(10, 102, 194, 0.45);
+}
+
+.owner-lock-icon {
+  font-size: 0.85rem;
+}
+
+.owner-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(10, 102, 194, 0.35);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #bae6fd;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+}
+
+/* --- Owner Passkey Authentication Modal --- */
+.owner-auth-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.85);
+  backdrop-filter: blur(14px);
+  z-index: 5000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.owner-auth-modal.active {
+  display: flex;
+}
+
+.owner-auth-box {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(11, 15, 29, 0.98));
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: var(--radius-lg);
+  max-width: 460px;
+  width: 100%;
+  padding: 34px 30px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(10, 102, 194, 0.25);
+  animation: authBoxPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes authBoxPop {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.auth-icon-badge {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: rgba(10, 102, 194, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.25);
+}
+
+.auth-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-pin-input {
+  width: 100%;
+  padding: 14px 44px 14px 16px;
+  background: rgba(2, 6, 23, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  letter-spacing: 0.15em;
+  transition: all 0.2s ease;
+}
+
+.auth-pin-input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.btn-toggle-pin {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.btn-toggle-pin:hover {
+  color: #ffffff;
+}
+
+.auth-error {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  animation: shakeError 0.3s ease;
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* --- LinkedIn-Style Profile Views Analytics Modal --- */
+.linkedin-analytics-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.88);
+  backdrop-filter: blur(16px);
+  z-index: 4500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.linkedin-analytics-modal.active {
+  display: flex;
+}
+
+.linkedin-analytics-box {
+  background: linear-gradient(180deg, #0f172a 0%, #0a0f1d 100%);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: var(--radius-lg);
+  max-width: 1040px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px 32px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 60px rgba(10, 102, 194, 0.25);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Header & LinkedIn Branding */
+.linkedin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.linkedin-branding {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.linkedin-logo-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #0a66c2;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 1.6rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(10, 102, 194, 0.5);
+  user-select: none;
+}
+
+.owner-pill-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.linkedin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.live-pulse-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.28);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 10px #4ade80;
+  animation: pulseBeacon 1.8s infinite;
+}
+
+@keyframes pulseBeacon {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+/* KPI Summary Cards Grid */
+.linkedin-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.linkedin-kpi-card {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.linkedin-kpi-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(15, 23, 42, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.kpi-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+.kpi-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.kpi-number {
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.kpi-trend.positive {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #4ade80;
+}
+
+.kpi-badge-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.14);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.kpi-sub {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Weekly Activity Chart */
+.linkedin-chart-section {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+}
+
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.chart-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.chart-title svg {
+  color: #38bdf8;
+}
+
+.linkedin-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  height: 90px;
+  padding-top: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chart-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.chart-bar-fill {
+  width: 100%;
+  max-width: 32px;
+  background: linear-gradient(180deg, #38bdf8 0%, #0a66c2 100%);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+  min-height: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.chart-bar-fill:hover {
+  background: linear-gradient(180deg, #67e8f9 0%, #0284c7 100%);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.6);
+}
+
+.chart-day-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.chart-val-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: #38bdf8;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+/* Action & Search Toolbar */
+.viewer-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.viewer-search-wrap {
+  flex: 1;
+  min-width: 260px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.viewer-search-wrap svg {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+}
+
+.viewer-search-input {
+  width: 100%;
+  padding: 10px 14px 10px 40px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  color: #ffffff;
+  font-size: 0.86rem;
+  transition: all 0.2s ease;
+}
+
+.viewer-search-input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.viewer-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-action-small {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #e2e8f0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-action-small:hover {
+  background: rgba(56, 189, 248, 0.14);
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-action-small.danger {
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.btn-action-small.danger:hover {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: #ef4444;
+}
+
+/* Viewer Feed / Stream */
+.viewer-stream-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.viewer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Custom scrollbar for viewer list */
+.viewer-list::-webkit-scrollbar,
+.linkedin-analytics-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.viewer-list::-webkit-scrollbar-thumb,
+.linkedin-analytics-box::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 3px;
+}
+
+/* Single Viewer Entry Card (LinkedIn Style) */
+.viewer-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  transition: all 0.25s ease;
+}
+
+.viewer-card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+.viewer-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0a66c2, #0284c7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 16px rgba(10, 102, 194, 0.35);
+}
+
+.viewer-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.viewer-headline-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.viewer-title {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.viewer-time {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.viewer-isp {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.viewer-tags-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.viewer-tag-pill {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.viewer-tag-pill.highlight {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.viewer-tag-pill.visit-count {
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.12);
+  border-color: rgba(167, 139, 250, 0.25);
+}
+
+.empty-viewers-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* Responsive Overrides */
+@media (max-width: 900px) {
+  .linkedin-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .linkedin-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  .linkedin-analytics-box {
+    padding: 20px 16px;
+  }
+  .viewer-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .viewer-actions {
+    justify-content: space-between;
+  }
+}
+
+

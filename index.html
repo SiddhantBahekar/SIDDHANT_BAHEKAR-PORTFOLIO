@@ -2167,8 +2167,13 @@
         <div>
           © 2026 Siddhant Shamkumar Bahekar. All Rights Reserved. PRN: 24070521077.
         </div>
-        <div>
-          Symbiosis Institute of Technology (SIT), Nagpur | Continuous Assessment (CA3) Submission
+        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:center;">
+          <span>Symbiosis Institute of Technology (SIT), Nagpur | Continuous Assessment (CA3)</span>
+          <button id="owner-views-trigger" class="owner-access-btn" title="Owner Only: Who Viewed Your Profile (Protected with Passkey)">
+            <span class="owner-lock-icon">🔒</span>
+            <span>Who Viewed Profile</span>
+            <span class="owner-badge">LinkedIn Mode</span>
+          </button>
         </div>
       </div>
     </div>
@@ -2273,6 +2278,153 @@
         <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">ESC to close</span>
       </div>
       <div class="cmd-results" id="cmd-palette-results"></div>
+    </div>
+  <!-- 5. Owner Passkey Auth Modal (Protected LinkedIn Analytics Access) -->
+  <div class="owner-auth-modal" id="owner-auth-modal" role="dialog" aria-modal="true" aria-label="Owner Passkey Authentication">
+    <div class="owner-auth-box">
+      <button class="modal-close-btn" id="owner-auth-close" aria-label="Close modal">✕</button>
+      <div class="auth-icon-badge">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h3 style="font-size:1.45rem; color:#fff; margin:14px 0 6px 0; font-weight:700;">Owner Authentication</h3>
+      <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:20px; line-height:1.5;">
+        This real-time LinkedIn-style telemetry dashboard displays who viewed your portfolio (IP address, location, device, visit count, IST timestamp). 
+        <strong>Accessible exclusively to Siddhant Shamkumar Bahekar</strong>.
+      </p>
+
+      <form id="owner-auth-form" onsubmit="return false;">
+        <div class="auth-input-group">
+          <label for="owner-passkey-input" style="font-size:0.8rem; color:var(--text-muted); font-weight:600; display:block; margin-bottom:6px;">ENTER OWNER PIN / PASSKEY</label>
+          <div class="auth-input-wrapper">
+            <input type="password" id="owner-passkey-input" class="auth-pin-input" placeholder="Enter PRN (24070521077)" autocomplete="current-password" required />
+            <button type="button" id="toggle-auth-pin" class="btn-toggle-pin" aria-label="Toggle pin visibility">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div id="auth-error-msg" class="auth-error" style="display:none;"></div>
+        </div>
+
+        <button type="submit" id="btn-submit-owner-auth" class="btn-primary" style="width:100%; justify-content:center; margin-top:16px;">
+          <span>Unlock Profile Views</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </form>
+      <div style="font-size:0.75rem; color:var(--text-muted); margin-top:16px; text-align:center;">
+        🔒 Default PIN: Your SIT PRN <code>24070521077</code> · Session-secured
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. LinkedIn-Style "Who Viewed Your Profile" Analytics Dashboard (Owner Only) -->
+  <div class="linkedin-analytics-modal" id="owner-analytics-modal" role="dialog" aria-modal="true" aria-label="LinkedIn Style Profile Analytics">
+    <div class="linkedin-analytics-box">
+      <!-- Modal Header -->
+      <div class="linkedin-header">
+        <div class="linkedin-branding">
+          <div class="linkedin-logo-badge">in</div>
+          <div>
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <h2 style="font-size:1.45rem; color:#fff; font-weight:700; margin:0;">Who viewed your profile</h2>
+              <span class="owner-pill-badge">Owner View Only</span>
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin:4px 0 0 0;">
+              Real-time visitor telemetry & recruiter insights for <strong>Siddhant Shamkumar Bahekar</strong>
+            </p>
+          </div>
+        </div>
+        <div class="linkedin-header-actions">
+          <div class="live-pulse-badge">
+            <span class="pulse-dot"></span>
+            <span>Live Telemetry</span>
+          </div>
+          <button class="modal-close-btn" id="owner-analytics-close" aria-label="Close analytics modal">✕</button>
+        </div>
+      </div>
+
+      <!-- KPI Summary Cards -->
+      <div class="linkedin-kpi-grid">
+        <div class="linkedin-kpi-card">
+          <div class="kpi-label">PROFILE VIEWS (ALL TIME)</div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-total-views">0</span>
+            <span class="kpi-trend positive">▲ +24% this week</span>
+          </div>
+          <div class="kpi-sub">Every visit to your portfolio is logged here</div>
+        </div>
+
+        <div class="linkedin-kpi-card">
+          <div class="kpi-label">GEOGRAPHIES REACHED</div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-total-cities">0</span>
+            <span class="kpi-badge-pill">Cities</span>
+          </div>
+          <div class="kpi-sub" id="kpi-top-city">Top: Pune, Maharashtra, IN</div>
+        </div>
+
+        <div class="linkedin-kpi-card">
+          <div class="kpi-label">PRIMARY TRAFFIC SOURCE</div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" style="font-size:1.35rem;" id="kpi-top-referrer">Direct / LinkedIn</span>
+          </div>
+          <div class="kpi-sub" id="kpi-referrer-breakdown">LinkedIn · GitHub · Direct URL</div>
+        </div>
+
+        <div class="linkedin-kpi-card">
+          <div class="kpi-label">PLATFORM BREAKDOWN</div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" style="font-size:1.35rem;" id="kpi-platform-ratio">Desktop 75%</span>
+          </div>
+          <div class="kpi-sub" id="kpi-os-breakdown">Windows · macOS · Android · iOS</div>
+        </div>
+      </div>
+
+      <!-- Activity Timeline Sparkline / Chart -->
+      <div class="linkedin-chart-section">
+        <div class="chart-header">
+          <div class="chart-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            <span>Weekly Profile View Trend</span>
+          </div>
+          <span style="font-size:0.78rem; color:var(--text-muted); font-family:var(--font-mono);">Past 7 Days (IST)</span>
+        </div>
+        <div class="linkedin-bar-chart" id="linkedin-bar-chart">
+          <!-- Dynamic bars rendered via JS -->
+        </div>
+      </div>
+
+      <!-- Action & Search Toolbar -->
+      <div class="viewer-filter-bar">
+        <div class="viewer-search-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="viewer-search-input" class="viewer-search-input" placeholder="Search viewers by city, country, IP, browser, ISP..." />
+        </div>
+        <div class="viewer-actions">
+          <button id="btn-refresh-viewers" class="btn-action-small" title="Refresh Live Data">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            <span>Refresh</span>
+          </button>
+          <button id="btn-export-csv" class="btn-action-small" title="Download CSV Log">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Export CSV</span>
+          </button>
+          <button id="btn-test-self-hit" class="btn-action-small" title="Simulate / Record a Visit from your device right now">
+            <span>🧪 Test Live Hit</span>
+          </button>
+          <button id="btn-lock-owner-portal" class="btn-action-small danger" title="Lock & Log Out">
+            <span>🔒 Lock</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Viewer Stream / Feed (LinkedIn-style member cards) -->
+      <div class="viewer-stream-header">
+        <span style="font-weight:700; color:#fff; font-size:0.95rem;">All Profile Viewers</span>
+        <span id="viewer-count-label" style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Showing 0 viewers</span>
+      </div>
+
+      <div class="viewer-list" id="viewer-list-container">
+        <!-- Rendered via JS -->
+      </div>
     </div>
   </div>
 
