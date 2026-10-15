@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- 6. Multi-View Portal Router Engine ---
-  const validViews = ['home', 'about', 'experience', 'education', 'skills', 'projects', 'patent', 'certificates', 'gallery', 'contact'];
+  const validViews = ['home', 'about', 'experience', 'education', 'skills', 'projects', 'patent', 'certificates', 'gallery', 'contact', 'owner'];
   const viewPanels = document.querySelectorAll('.view-panel');
   const desktopNavLinks = document.querySelectorAll('.desktop-nav-links .nav-link');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-links .mobile-nav-link');
@@ -274,6 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cleanId === 'academic-performance' || cleanId === 'academics') cleanId = 'education';
     if (cleanId === 'certs' || cleanId === 'certification') cleanId = 'certificates';
     if (cleanId === 'work' || cleanId === 'internships') cleanId = 'experience';
+    if (cleanId === 'dashboard' || cleanId === 'analytics' || cleanId === 'telemetry') cleanId = 'owner';
 
     if (!validViews.includes(cleanId)) {
       cleanId = 'home';
@@ -287,6 +288,10 @@ document.addEventListener('DOMContentLoaded', () => {
       panel.classList.remove('active');
     });
     targetPanel.classList.add('active');
+
+    if (cleanId === 'owner' && typeof window.checkOwnerSectionState === 'function') {
+      window.checkOwnerSectionState();
+    }
 
     // Update nav links active state
     desktopNavLinks.forEach(link => {
@@ -1273,7 +1278,7 @@ GitHub: GitHub.com/SiddhantBahekar`
     const AUTH_KEY = 'siddhant_owner_authorized';
     const VALID_PINS = ['24070521077', 'siddhant', 'siddhant2026', 'admin'];
 
-    // DOM Elements
+    // Modal DOM Elements
     const ownerTriggerBtn = document.getElementById('owner-views-trigger');
     const authModal = document.getElementById('owner-auth-modal');
     const authCloseBtn = document.getElementById('owner-auth-close');
@@ -1285,7 +1290,17 @@ GitHub: GitHub.com/SiddhantBahekar`
     const analyticsModal = document.getElementById('owner-analytics-modal');
     const analyticsCloseBtn = document.getElementById('owner-analytics-close');
 
-    // KPI Elements
+    // Section DOM Elements (Dedicated View-Owner)
+    const ownerSectionGate = document.getElementById('owner-section-gate');
+    const ownerSectionContent = document.getElementById('owner-section-content');
+    const ownerSectionForm = document.getElementById('owner-section-auth-form');
+    const ownerSectionInput = document.getElementById('owner-section-password-input');
+    const toggleSectionPinBtn = document.getElementById('toggle-section-pin');
+    const ownerSectionError = document.getElementById('owner-section-error');
+    const btnSubmitSectionAuth = document.getElementById('btn-submit-section-auth');
+    const btnSectionLock = document.getElementById('btn-section-lock-dashboard');
+
+    // Modal KPI Elements
     const kpiTotalViews = document.getElementById('kpi-total-views');
     const kpiTotalCities = document.getElementById('kpi-total-cities');
     const kpiTopCity = document.getElementById('kpi-top-city');
@@ -1294,17 +1309,36 @@ GitHub: GitHub.com/SiddhantBahekar`
     const kpiPlatformRatio = document.getElementById('kpi-platform-ratio');
     const kpiOsBreakdown = document.getElementById('kpi-os-breakdown');
 
-    // Bar Chart & Viewer List Elements
+    // Section KPI Elements
+    const secKpiTotalViews = document.getElementById('sec-kpi-total-views');
+    const secKpiTotalCities = document.getElementById('sec-kpi-total-cities');
+    const secKpiTopCity = document.getElementById('sec-kpi-top-city');
+    const secKpiTopReferrer = document.getElementById('sec-kpi-top-referrer');
+    const secKpiReferrerBreakdown = document.getElementById('sec-kpi-referrer-breakdown');
+    const secKpiPlatformRatio = document.getElementById('sec-kpi-platform-ratio');
+    const secKpiOsBreakdown = document.getElementById('sec-kpi-os-breakdown');
+
+    // Bar Chart & Viewer List Elements (Modal)
     const barChartContainer = document.getElementById('linkedin-bar-chart');
     const viewerSearchInput = document.getElementById('viewer-search-input');
     const viewerCountLabel = document.getElementById('viewer-count-label');
     const viewerListContainer = document.getElementById('viewer-list-container');
+
+    // Bar Chart & Viewer List Elements (Section)
+    const secBarChartContainer = document.getElementById('sec-linkedin-bar-chart');
+    const secViewerSearchInput = document.getElementById('sec-viewer-search-input');
+    const secViewerCountLabel = document.getElementById('sec-viewer-count-label');
+    const secViewerListContainer = document.getElementById('sec-viewer-list-container');
 
     // Action Buttons
     const btnRefresh = document.getElementById('btn-refresh-viewers');
     const btnExport = document.getElementById('btn-export-csv');
     const btnTestHit = document.getElementById('btn-test-self-hit');
     const btnLock = document.getElementById('btn-lock-owner-portal');
+
+    const secBtnRefresh = document.getElementById('sec-btn-refresh-viewers');
+    const secBtnExport = document.getElementById('sec-btn-export-csv');
+    const secBtnTestHit = document.getElementById('sec-btn-test-self-hit');
 
     let allLoadedViewers = [];
 
@@ -1439,15 +1473,26 @@ GitHub: GitHub.com/SiddhantBahekar`
       return sessionStorage.getItem(AUTH_KEY) === 'verified';
     }
 
-    function openOwnerPortal() {
+    // Check & Synchronize Section State
+    function checkOwnerSectionState() {
       if (isAuthorized()) {
-        openAnalyticsDashboard();
+        if (ownerSectionGate) ownerSectionGate.style.display = 'none';
+        if (ownerSectionContent) ownerSectionContent.style.display = 'flex';
+        loadAndRenderAnalytics();
       } else {
-        openAuthGate();
+        if (ownerSectionGate) ownerSectionGate.style.display = 'block';
+        if (ownerSectionContent) ownerSectionContent.style.display = 'none';
+        if (ownerSectionError) ownerSectionError.style.display = 'none';
+        if (ownerSectionInput) ownerSectionInput.value = '';
       }
     }
+    window.checkOwnerSectionState = checkOwnerSectionState;
 
-    // Expose globally so command palette and shortcuts can trigger it
+    // Navigate to Owner Section (or open modal if requested)
+    function openOwnerPortal() {
+      switchView('owner');
+      checkOwnerSectionState();
+    }
     window.openOwnerPortal = openOwnerPortal;
 
     function openAuthGate() {
@@ -1475,7 +1520,7 @@ GitHub: GitHub.com/SiddhantBahekar`
       if (analyticsModal) analyticsModal.classList.remove('active');
     }
 
-    // Pin reveal toggle
+    // Modal Pin reveal toggle
     if (togglePinBtn && authPinInput) {
       togglePinBtn.addEventListener('click', () => {
         const isPwd = authPinInput.getAttribute('type') === 'password';
@@ -1484,13 +1529,63 @@ GitHub: GitHub.com/SiddhantBahekar`
       });
     }
 
-    // Owner Auth Submission
+    // Section Pin reveal toggle
+    if (toggleSectionPinBtn && ownerSectionInput) {
+      toggleSectionPinBtn.addEventListener('click', () => {
+        const isPwd = ownerSectionInput.getAttribute('type') === 'password';
+        ownerSectionInput.setAttribute('type', isPwd ? 'text' : 'password');
+        toggleSectionPinBtn.style.color = isPwd ? '#38bdf8' : 'var(--text-muted)';
+      });
+    }
+
+    // Section Auth Submission
+    function handleSectionAuthSubmit() {
+      const pin = (ownerSectionInput ? ownerSectionInput.value : '').trim();
+      if (VALID_PINS.includes(pin)) {
+        sessionStorage.setItem(AUTH_KEY, 'verified');
+        if (ownerSectionError) ownerSectionError.style.display = 'none';
+        playUiBeep(720, 'sine', 0.1);
+        checkOwnerSectionState();
+      } else {
+        playUiBeep(240, 'triangle', 0.2);
+        if (ownerSectionError) {
+          ownerSectionError.textContent = '❌ Access Denied: Incorrect Password. Restricted exclusively to Siddhant.';
+          ownerSectionError.style.display = 'block';
+        }
+        if (ownerSectionInput) {
+          ownerSectionInput.classList.add('auth-error-shake');
+          setTimeout(() => ownerSectionInput.classList.remove('auth-error-shake'), 400);
+          ownerSectionInput.focus();
+        }
+      }
+    }
+
+    if (ownerSectionForm) {
+      ownerSectionForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        handleSectionAuthSubmit();
+      });
+    }
+
+    if (btnSubmitSectionAuth) {
+      btnSubmitSectionAuth.addEventListener('click', handleSectionAuthSubmit);
+    }
+
+    if (btnSectionLock) {
+      btnSectionLock.addEventListener('click', () => {
+        sessionStorage.removeItem(AUTH_KEY);
+        checkOwnerSectionState();
+      });
+    }
+
+    // Modal Auth Submission
     function handleAuthSubmit() {
       const pin = (authPinInput ? authPinInput.value : '').trim();
       if (VALID_PINS.includes(pin)) {
         sessionStorage.setItem(AUTH_KEY, 'verified');
         if (authError) authError.style.display = 'none';
         openAnalyticsDashboard();
+        checkOwnerSectionState();
       } else {
         playUiBeep(240, 'triangle', 0.2);
         if (authError) {
@@ -1529,7 +1624,7 @@ GitHub: GitHub.com/SiddhantBahekar`
       analyticsCloseBtn.addEventListener('click', closeAnalyticsDashboard);
     }
 
-    // Click outside to close
+    // Click outside to close modal
     if (authModal) {
       authModal.addEventListener('click', (e) => {
         if (e.target === authModal) closeAuthGate();
@@ -1589,10 +1684,11 @@ GitHub: GitHub.com/SiddhantBahekar`
       renderBarChart(allLoadedViewers);
     }
 
-    // Render KPI Analytics Cards
+    // Render KPI Analytics Cards (Synchronizes both Modal & Section)
     function updateKpis(viewers) {
       const totalCount = viewers.length;
       if (kpiTotalViews) kpiTotalViews.textContent = totalCount;
+      if (secKpiTotalViews) secKpiTotalViews.textContent = totalCount;
 
       // Unique Cities
       const cityMap = {};
@@ -1622,38 +1718,40 @@ GitHub: GitHub.com/SiddhantBahekar`
 
       const uniqueCities = Object.keys(cityMap).length;
       if (kpiTotalCities) kpiTotalCities.textContent = uniqueCities;
+      if (secKpiTotalCities) secKpiTotalCities.textContent = uniqueCities;
 
       // Top City
       const sortedCities = Object.entries(cityMap).sort((a, b) => b[1] - a[1]);
-      if (kpiTopCity && sortedCities.length > 0) {
-        kpiTopCity.textContent = `Top Hub: ${sortedCities[0][0]} (${sortedCities[0][1]} views)`;
+      if (sortedCities.length > 0) {
+        const topStr = `Top Hub: ${sortedCities[0][0]} (${sortedCities[0][1]} views)`;
+        if (kpiTopCity) kpiTopCity.textContent = topStr;
+        if (secKpiTopCity) secKpiTopCity.textContent = topStr;
       }
 
       // Top Referrer
       const sortedRef = Object.entries(referrerMap).sort((a, b) => b[1] - a[1]);
-      if (kpiTopReferrer && sortedRef.length > 0) {
-        kpiTopReferrer.textContent = sortedRef[0][0];
-      }
-      if (kpiReferrerBreakdown) {
+      if (sortedRef.length > 0) {
+        if (kpiTopReferrer) kpiTopReferrer.textContent = sortedRef[0][0];
+        if (secKpiTopReferrer) secKpiTopReferrer.textContent = sortedRef[0][0];
+
         const items = sortedRef.map(([k, v]) => `${k} (${Math.round((v / totalCount) * 100)}%)`);
-        kpiReferrerBreakdown.textContent = items.slice(0, 3).join(' · ');
+        const refStr = items.slice(0, 3).join(' · ');
+        if (kpiReferrerBreakdown) kpiReferrerBreakdown.textContent = refStr;
+        if (secKpiReferrerBreakdown) secKpiReferrerBreakdown.textContent = refStr;
       }
 
       // Hardware Platform
       const totalDevices = desktopCount + mobileCount || 1;
       const deskPct = Math.round((desktopCount / totalDevices) * 100);
       const mobPct = 100 - deskPct;
-      if (kpiPlatformRatio) {
-        kpiPlatformRatio.textContent = `Desktop ${deskPct}%`;
-      }
-      if (kpiOsBreakdown) {
-        kpiOsBreakdown.textContent = `Desktop: ${desktopCount} | Mobile: ${mobileCount} (${mobPct}%)`;
-      }
+      if (kpiPlatformRatio) kpiPlatformRatio.textContent = `Desktop ${deskPct}%`;
+      if (secKpiPlatformRatio) secKpiPlatformRatio.textContent = `Desktop ${deskPct}%`;
+      if (kpiOsBreakdown) kpiOsBreakdown.textContent = `Desktop: ${desktopCount} | Mobile: ${mobileCount} (${mobPct}%)`;
+      if (secKpiOsBreakdown) secKpiOsBreakdown.textContent = `Desktop: ${desktopCount} | Mobile: ${mobileCount} (${mobPct}%)`;
     }
 
-    // Render Weekly Bar Chart
+    // Render Weekly Bar Chart (Synchronizes both Modal & Section)
     function renderBarChart(viewers) {
-      if (!barChartContainer) return;
       const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       const counts = [0, 0, 0, 0, 0, 0, 0];
 
@@ -1663,10 +1761,7 @@ GitHub: GitHub.com/SiddhantBahekar`
         counts[dayIdx]++;
       });
 
-      // Ensure active visual profile even if small dataset
       const maxVal = Math.max(...counts, 4);
-
-      // Reorder to have past 7 days ending with today
       const today = new Date().getDay();
       const orderedDays = [];
       for (let i = 6; i >= 0; i--) {
@@ -1674,83 +1769,93 @@ GitHub: GitHub.com/SiddhantBahekar`
         orderedDays.push({ name: dayNames[d], count: counts[d] || (i === 0 ? 3 : Math.floor(Math.random() * 2) + 1) });
       }
 
-      barChartContainer.innerHTML = '';
-      orderedDays.forEach(item => {
-        const pct = Math.max(12, Math.round((item.count / maxVal) * 100));
-        const col = document.createElement('div');
-        col.className = 'chart-col';
-        col.innerHTML = `
-          <div class="chart-val-label">${item.count}</div>
-          <div class="chart-bar-fill" style="height:${pct}%;" title="${item.name}: ${item.count} profile views"></div>
-          <div class="chart-day-label">${item.name}</div>
-        `;
-        barChartContainer.appendChild(col);
+      const containers = [barChartContainer, secBarChartContainer].filter(Boolean);
+      containers.forEach(container => {
+        container.innerHTML = '';
+        orderedDays.forEach(item => {
+          const pct = Math.max(12, Math.round((item.count / maxVal) * 100));
+          const col = document.createElement('div');
+          col.className = 'chart-col';
+          col.innerHTML = `
+            <div class="chart-val-label">${item.count}</div>
+            <div class="chart-bar-fill" style="height:${pct}%;" title="${item.name}: ${item.count} profile views"></div>
+            <div class="chart-day-label">${item.name}</div>
+          `;
+          container.appendChild(col);
+        });
       });
     }
 
-    // Render Viewer Cards List (LinkedIn Style)
+    // Render Viewer Cards List (Synchronizes both Modal & Section)
     function renderViewersFeed(viewers) {
-      if (!viewerListContainer) return;
-      viewerListContainer.innerHTML = '';
+      const listContainers = [
+        { container: viewerListContainer, label: viewerCountLabel },
+        { container: secViewerListContainer, label: secViewerCountLabel }
+      ];
 
-      if (viewerCountLabel) {
-        viewerCountLabel.textContent = `Showing ${viewers.length} profile viewers`;
-      }
+      listContainers.forEach(({ container, label }) => {
+        if (!container) return;
+        container.innerHTML = '';
 
-      if (viewers.length === 0) {
-        viewerListContainer.innerHTML = `
-          <div class="empty-viewers-state">
-            <div style="font-size:2rem; margin-bottom:8px;">👁️</div>
-            <div>No matching visitors found for this search filter.</div>
-          </div>
-        `;
-        return;
-      }
+        if (label) {
+          label.textContent = `Showing ${viewers.length} profile viewers`;
+        }
 
-      viewers.forEach((v, idx) => {
-        const flag = getCountryFlag(v.country);
-        const cityStr = v.city || 'Verified Location';
-        const regionStr = v.region ? `${v.region}, ` : '';
-        const countryStr = v.country || 'India';
-        const locationTitle = `Viewer from ${cityStr}, ${regionStr}${countryStr}`;
-        const timeStr = v.timestampIST || 'Recent Visit (IST)';
-        const ispStr = v.isp || 'Global Edge Network';
-        const osStr = v.os || 'Desktop Device';
-        const browserStr = v.browser || 'Web Browser';
-        const screenStr = v.screen || 'Desktop Screen';
-        const refStr = v.referrer || 'Direct Visit';
-        const visitNumber = v.visitCount || `#${idx + 1}`;
-        const ipStr = v.ip || '103.xxx.xxx.xxx';
-
-        const card = document.createElement('div');
-        card.className = 'viewer-card';
-        card.innerHTML = `
-          <div class="viewer-avatar" title="${countryStr}">
-            ${flag}
-          </div>
-          <div class="viewer-info">
-            <div class="viewer-headline-row">
-              <span class="viewer-title">${locationTitle} ${flag}</span>
-              <span class="viewer-time">${timeStr}</span>
+        if (viewers.length === 0) {
+          container.innerHTML = `
+            <div class="empty-viewers-state">
+              <div style="font-size:2rem; margin-bottom:8px;">👁️</div>
+              <div>No matching visitors found for this search filter.</div>
             </div>
-            <div class="viewer-isp">
-              🏢 Network / ISP: <strong>${ispStr}</strong> · IP: <code>${ipStr}</code>
+          `;
+          return;
+        }
+
+        viewers.forEach((v, idx) => {
+          const flag = getCountryFlag(v.country);
+          const cityStr = v.city || 'Verified Location';
+          const regionStr = v.region ? `${v.region}, ` : '';
+          const countryStr = v.country || 'India';
+          const locationTitle = `Viewer from ${cityStr}, ${regionStr}${countryStr}`;
+          const timeStr = v.timestampIST || 'Recent Visit (IST)';
+          const ispStr = v.isp || 'Global Edge Network';
+          const osStr = v.os || 'Desktop Device';
+          const browserStr = v.browser || 'Web Browser';
+          const screenStr = v.screen || 'Desktop Screen';
+          const refStr = v.referrer || 'Direct Visit';
+          const visitNumber = v.visitCount || `#${idx + 1}`;
+          const ipStr = v.ip || '103.xxx.xxx.xxx';
+
+          const card = document.createElement('div');
+          card.className = 'viewer-card';
+          card.innerHTML = `
+            <div class="viewer-avatar" title="${countryStr}">
+              ${flag}
             </div>
-            <div class="viewer-tags-row">
-              <span class="viewer-tag-pill highlight">💻 ${osStr} · ${browserStr}</span>
-              <span class="viewer-tag-pill">🖥️ ${screenStr}</span>
-              <span class="viewer-tag-pill">🌐 Ref: ${refStr.length > 35 ? refStr.substring(0, 35) + '...' : refStr}</span>
-              <span class="viewer-tag-pill visit-count">🔄 ${visitNumber}</span>
+            <div class="viewer-info">
+              <div class="viewer-headline-row">
+                <span class="viewer-title">${locationTitle} ${flag}</span>
+                <span class="viewer-time">${timeStr}</span>
+              </div>
+              <div class="viewer-isp">
+                🏢 Network / ISP: <strong>${ispStr}</strong> · IP: <code>${ipStr}</code>
+              </div>
+              <div class="viewer-tags-row">
+                <span class="viewer-tag-pill highlight">💻 ${osStr} · ${browserStr}</span>
+                <span class="viewer-tag-pill">🖥️ ${screenStr}</span>
+                <span class="viewer-tag-pill">🌐 Ref: ${refStr.length > 35 ? refStr.substring(0, 35) + '...' : refStr}</span>
+                <span class="viewer-tag-pill visit-count">🔄 ${visitNumber}</span>
+              </div>
             </div>
-          </div>
-        `;
-        viewerListContainer.appendChild(card);
+          `;
+          container.appendChild(card);
+        });
       });
     }
 
-    // Search Filtering
-    if (viewerSearchInput) {
-      viewerSearchInput.addEventListener('input', (e) => {
+    // Search Filtering Setup
+    [viewerSearchInput, secViewerSearchInput].filter(Boolean).forEach(input => {
+      input.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase().trim();
         if (!query) {
           renderViewersFeed(allLoadedViewers);
@@ -1762,102 +1867,110 @@ GitHub: GitHub.com/SiddhantBahekar`
         });
         renderViewersFeed(filtered);
       });
-    }
+    });
 
     // Refresh Action
-    if (btnRefresh) {
-      btnRefresh.addEventListener('click', () => {
-        btnRefresh.style.transform = 'rotate(180deg)';
-        setTimeout(() => { btnRefresh.style.transform = 'none'; }, 400);
+    [btnRefresh, secBtnRefresh].filter(Boolean).forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.style.transform = 'rotate(180deg)';
+        setTimeout(() => { btn.style.transform = 'none'; }, 400);
         loadAndRenderAnalytics();
       });
-    }
+    });
 
     // Export CSV Report
-    if (btnExport) {
-      btnExport.addEventListener('click', () => {
-        if (!allLoadedViewers.length) return;
-        let csvContent = "data:text/csv;charset=utf-8,";
-        csvContent += "ID,Visit Timestamp (IST),City,Region,Country,IP Address,ISP/Carrier,Operating System,Browser,Screen Resolution,Traffic Source,Visit Number\n";
+    function exportCsv() {
+      if (!allLoadedViewers.length) return;
+      let csvContent = "data:text/csv;charset=utf-8,";
+      csvContent += "ID,Visit Timestamp (IST),City,Region,Country,IP Address,ISP/Carrier,Operating System,Browser,Screen Resolution,Traffic Source,Visit Number\n";
 
-        allLoadedViewers.forEach(v => {
-          const row = [
-            `"${v.id || ''}"`,
-            `"${(v.timestampIST || '').replace(/"/g, '""')}"`,
-            `"${(v.city || '').replace(/"/g, '""')}"`,
-            `"${(v.region || '').replace(/"/g, '""')}"`,
-            `"${(v.country || '').replace(/"/g, '""')}"`,
-            `"${(v.ip || '').replace(/"/g, '""')}"`,
-            `"${(v.isp || '').replace(/"/g, '""')}"`,
-            `"${(v.os || '').replace(/"/g, '""')}"`,
-            `"${(v.browser || '').replace(/"/g, '""')}"`,
-            `"${(v.screen || '').replace(/"/g, '""')}"`,
-            `"${(v.referrer || '').replace(/"/g, '""')}"`,
-            `"${(v.visitCount || '').replace(/"/g, '""')}"`
-          ];
-          csvContent += row.join(",") + "\n";
-        });
-
-        const encodedUri = encodeURI(csvContent);
-        const link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", `Siddhant_Portfolio_Who_Viewed_Profile_${new Date().toISOString().slice(0, 10)}.csv`);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+      allLoadedViewers.forEach(v => {
+        const row = [
+          `"${v.id || ''}"`,
+          `"${(v.timestampIST || '').replace(/"/g, '""')}"`,
+          `"${(v.city || '').replace(/"/g, '""')}"`,
+          `"${(v.region || '').replace(/"/g, '""')}"`,
+          `"${(v.country || '').replace(/"/g, '""')}"`,
+          `"${(v.ip || '').replace(/"/g, '""')}"`,
+          `"${(v.isp || '').replace(/"/g, '""')}"`,
+          `"${(v.os || '').replace(/"/g, '""')}"`,
+          `"${(v.browser || '').replace(/"/g, '""')}"`,
+          `"${(v.screen || '').replace(/"/g, '""')}"`,
+          `"${(v.referrer || '').replace(/"/g, '""')}"`,
+          `"${(v.visitCount || '').replace(/"/g, '""')}"`
+        ];
+        csvContent += row.join(",") + "\n";
       });
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `Siddhant_Portfolio_Who_Viewed_Profile_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
+
+    if (btnExport) btnExport.addEventListener('click', exportCsv);
+    if (secBtnExport) secBtnExport.addEventListener('click', exportCsv);
 
     // Test Live Hit (Records visit from owner's current device)
-    if (btnTestHit) {
-      btnTestHit.addEventListener('click', async () => {
-        const now = new Date();
-        const testTimeIST = now.toLocaleString('en-IN', {
-          timeZone: 'Asia/Kolkata',
-          dateStyle: 'full',
-          timeStyle: 'medium'
-        }) + ' (IST / India Standard Time)';
+    async function triggerTestHit(btnElement) {
+      const now = new Date();
+      const testTimeIST = now.toLocaleString('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        dateStyle: 'full',
+        timeStyle: 'medium'
+      }) + ' (IST / India Standard Time)';
 
-        const testEntry = {
-          id: 'vis_test_' + Date.now(),
-          ip: 'Your Current IP (Live Tested)',
-          city: 'Your City (Live)',
-          region: 'Maharashtra',
-          country: 'India',
-          location: 'Pune / Current Location, India',
-          isp: 'Local Network Provider (Verified Hit)',
-          os: navigator.userAgent.includes('Windows') ? 'Windows 11' : (navigator.userAgent.includes('Mac') ? 'macOS' : 'Mobile Device'),
-          browser: navigator.userAgent.includes('Chrome') ? 'Google Chrome' : 'Web Browser',
-          screen: `${window.screen.width}x${window.screen.height}`,
-          page: window.location.href,
-          referrer: 'Owner Self-Test Simulation',
-          visitCount: '#Self-Test',
-          timestampIST: testTimeIST,
-          timeShort: now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }),
-          timestamp: Date.now()
-        };
+      const testEntry = {
+        id: 'vis_test_' + Date.now(),
+        ip: 'Your Current IP (Live Tested)',
+        city: 'Your City (Live)',
+        region: 'Maharashtra',
+        country: 'India',
+        location: 'Pune / Current Location, India',
+        isp: 'Local Network Provider (Verified Hit)',
+        os: navigator.userAgent.includes('Windows') ? 'Windows 11' : (navigator.userAgent.includes('Mac') ? 'macOS' : 'Mobile Device'),
+        browser: navigator.userAgent.includes('Chrome') ? 'Google Chrome' : 'Web Browser',
+        screen: `${window.screen.width}x${window.screen.height}`,
+        page: window.location.href,
+        referrer: 'Owner Self-Test Simulation',
+        visitCount: '#Self-Test',
+        timestampIST: testTimeIST,
+        timeShort: now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }),
+        timestamp: Date.now()
+      };
 
-        try {
-          const rawVault = localStorage.getItem(VAULT_KEY);
-          const vault = rawVault ? JSON.parse(rawVault) : [];
-          vault.unshift(testEntry);
-          localStorage.setItem(VAULT_KEY, JSON.stringify(vault.slice(0, 100)));
-        } catch (e) {}
+      try {
+        const rawVault = localStorage.getItem(VAULT_KEY);
+        const vault = rawVault ? JSON.parse(rawVault) : [];
+        vault.unshift(testEntry);
+        localStorage.setItem(VAULT_KEY, JSON.stringify(vault.slice(0, 100)));
+      } catch (e) {}
 
-        btnTestHit.textContent = '✅ Recorded!';
-        setTimeout(() => { btnTestHit.textContent = '🧪 Test Live Hit'; }, 1500);
+      if (btnElement) {
+        btnElement.textContent = '✅ Recorded!';
+        setTimeout(() => { btnElement.textContent = '🧪 Test Live Hit'; }, 1500);
+      }
 
-        loadAndRenderAnalytics();
-      });
+      loadAndRenderAnalytics();
     }
+
+    if (btnTestHit) btnTestHit.addEventListener('click', () => triggerTestHit(btnTestHit));
+    if (secBtnTestHit) secBtnTestHit.addEventListener('click', () => triggerTestHit(secBtnTestHit));
 
     // Lock & Sign Out
     if (btnLock) {
       btnLock.addEventListener('click', () => {
         sessionStorage.removeItem(AUTH_KEY);
         closeAnalyticsDashboard();
+        checkOwnerSectionState();
       });
     }
+
+    // Check section state on initial load
+    checkOwnerSectionState();
   }
 
   // Initialize Owner Analytics

@@ -3882,4 +3882,106 @@ textarea.form-control {
   }
 }
 
+/* =========================================================================
+   DEDICATED OWNER DASHBOARD SECTION & INLINE LOCK GATE STYLING
+   ========================================================================= */
+
+/* Nav Highlight for Owner Dashboard Link */
+.nav-link.owner-nav-highlight,
+.mobile-nav-link.owner-nav-highlight {
+  color: #38bdf8 !important;
+  border-radius: var(--radius-full);
+}
+
+.nav-link.owner-nav-highlight:hover,
+.mobile-nav-link.owner-nav-highlight:hover {
+  background: rgba(56, 189, 248, 0.15) !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+/* Owner Portal Card in Homepage Hub */
+.owner-portal-card {
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.75), rgba(10, 15, 29, 0.85)) !important;
+}
+
+.owner-portal-card:hover {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.3) !important;
+}
+
+.owner-portal-card .portal-icon {
+  background: rgba(56, 189, 248, 0.14) !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2) !important;
+}
+
+/* State 1: Password Lock Gate in Section */
+.owner-section-gate-card {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.85), rgba(11, 15, 29, 0.95));
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: var(--radius-lg);
+  padding: 50px 32px;
+  text-align: center;
+  max-width: 640px;
+  margin: 30px auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 45px rgba(10, 102, 194, 0.25);
+  animation: authBoxPop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.owner-gate-icon-wrap {
+  width: 76px;
+  height: 76px;
+  border-radius: var(--radius-md);
+  background: rgba(10, 102, 194, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+}
+
+.owner-section-form {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.owner-section-input-group {
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.owner-input-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+/* State 2: Unlocked Section Content */
+.owner-section-unlocked {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: authBoxPop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.linkedin-banner-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+}
+
+
 
