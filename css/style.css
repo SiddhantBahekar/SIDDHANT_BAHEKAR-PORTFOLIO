@@ -308,7 +308,7 @@ button, input, textarea, select {
 /* --- Floating Navbar --- */
 .navbar-wrapper {
   position: fixed;
-  top: 16px;
+  top: 14px;
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -317,6 +317,7 @@ button, input, textarea, select {
   padding: 0 16px;
   pointer-events: none;
   transition: top 0.3s ease;
+  box-sizing: border-box;
 }
 
 .navbar {
@@ -324,21 +325,22 @@ button, input, textarea, select {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 8px 18px;
-  background: rgba(7, 10, 19, 0.88);
+  gap: 10px;
+  padding: 6px 14px 6px 10px;
+  background: rgba(7, 10, 19, 0.92);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-full);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.08);
   width: 100%;
-  max-width: 1260px;
+  max-width: 1420px;
+  box-sizing: border-box;
   transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
-  padding: 6px 16px;
+  padding: 5px 12px 5px 8px;
   background: rgba(7, 10, 19, 0.96);
   border-color: var(--border-accent);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), 0 0 24px rgba(0, 242, 254, 0.15);
@@ -347,10 +349,10 @@ button, input, textarea, select {
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--text-primary);
   white-space: nowrap;
   flex-shrink: 0;
@@ -359,15 +361,15 @@ button, input, textarea, select {
 .brand-name-full {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   letter-spacing: -0.01em;
   color: #ffffff;
   white-space: nowrap;
 }
 
 .brand-avatar {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--cyan-primary);
@@ -387,10 +389,10 @@ button, input, textarea, select {
 }
 
 .nav-link {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-secondary);
-  padding: 6px 11px;
+  padding: 5px 8px;
   border-radius: var(--radius-full);
   transition: var(--transition-fast);
   position: relative;
@@ -413,14 +415,14 @@ button, input, textarea, select {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .icon-btn {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -443,13 +445,13 @@ button, input, textarea, select {
 .search-trigger-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 5px;
+  padding: 5px 10px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
   color: var(--text-secondary);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   cursor: pointer;
   transition: var(--transition-fast);
   white-space: nowrap;
@@ -458,10 +460,10 @@ button, input, textarea, select {
 
 .search-trigger-btn kbd {
   background: rgba(255, 255, 255, 0.12);
-  padding: 2px 6px;
+  padding: 1px 5px;
   border-radius: 4px;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--cyan-primary);
 }
 
@@ -473,13 +475,13 @@ button, input, textarea, select {
 .nav-cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
+  gap: 5px;
+  padding: 5px 12px;
   border-radius: var(--radius-full);
   background: var(--gradient-cyber);
   color: #ffffff;
   font-weight: 700;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
   transition: var(--transition-bounce);
   white-space: nowrap;
@@ -2900,7 +2902,23 @@ textarea.form-control {
 }
 
 /* --- Responsive Media Queries --- */
-@media (max-width: 1180px) {
+@media (max-width: 1380px) {
+  .brand-name-middle {
+    display: none;
+  }
+  .nav-link {
+    font-size: 0.76rem;
+    padding: 4px 7px;
+  }
+  .search-trigger-btn span {
+    display: none;
+  }
+  .search-trigger-btn {
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 1280px) {
   .nav-links {
     display: none !important;
   }
@@ -2912,7 +2930,13 @@ textarea.form-control {
     display: none;
   }
   .search-trigger-btn {
-    padding: 7px 10px;
+    padding: 6px 9px;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand-name-last {
+    display: none;
   }
 }
 
